@@ -10,8 +10,9 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "6.0",
-        "laravel/tinker": "^1.0"
+        "laravel/framework": "^6.0",
+        "laravel/tinker": "^1.0",
+        "laravel/ui": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
@@ -57,11 +58,5 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
-    },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://mirrors.aliyun.com/composer/"
-        }
     }
 }
