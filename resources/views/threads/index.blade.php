@@ -17,7 +17,7 @@
                                 </div>
 
                                 <a href="{{ url('threads', $thread->id) }}">
-                                    {{ $thread->replies_count }} {{ $thread->replies_count }}
+                                    {{ $thread->replies_count }}
                                 </a>
                             </div>
                         </div>
