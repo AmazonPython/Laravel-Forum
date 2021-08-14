@@ -11,7 +11,7 @@
                                 <div class="flex">
                                     <h4>
                                         <a href="{{ url('threads', $thread->id) }}">
-                                            {{ $thread->title }}
+                                            {{ $thread->creator->name }} - {{ $thread->title }}
                                         </a>
                                     </h4>
                                 </div>
