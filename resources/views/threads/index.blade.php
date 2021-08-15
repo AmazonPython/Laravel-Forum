@@ -1,39 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                @forelse ($threads as $thread)
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="level">
-                                <div class="flex">
-                                    <h4>
-                                        <a href="{{ url('threads', $thread->id) }}">
-                                            {{ $thread->creator->name }} - {{ $thread->title }}
-                                        </a>
-                                    </h4>
-                                </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="color: #e27575;">
+                    <h3>首页</h3>
+                </div>
 
-                                <a href="{{ url('threads', $thread->id) }}">
-                                    {{ $thread->replies_count }}
-                                </a>
-                            </div>
+                <div class="card-body">
+                    @forelse ($threads as $thread)
+                        <h3 class="text-center">
+                            <a href="{{ url($thread->path()) }}">{{ $thread->title }}</a>
+                        </h3>
+                        <a>用户 <b>{{ $thread->creator->name }}</b> 发布于 <b>{{-- $thread->created_at->diffForHumans() --}}</b></a>
+                        <div class="card-body">
+                            {!! $thread->body !!}
                         </div>
-
-                        <div class="panel-body">
-                            <div class="body">{!! $thread->body !!}</div>
-                        </div>
-
-                        <div class="panel-footer">
-                            {{ $thread->visits }} Visits
-                        </div>
-                    </div>
-                @empty
-                    <p>There are no relevant results at this time.</p>
-                @endforelse
+                        <div class="card-footer">
+                            <a>浏览量：{{ $thread->visits }}</a> |
+                            <a href="{{ $thread->path() }}">评论：{{ $thread->replies_count }}</a>
+                        </div><br />
+                    @empty
+                        <div class="card-body">目前尚无相关结果(=￣ω￣=)···</div>>
+                    @endforelse
+                </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

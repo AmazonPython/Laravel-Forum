@@ -1,36 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-title">
-                            <h3>{{ $thread->title }}</h3>
-                        </div>
-                        <div class="panel-body">
-                            <p>{{ $thread->body }}</p><br />
-                            <p>
-                                This thread was published {{ $thread->created_at->diffForHumans() }}
-                                , and currently has {{ $thread->replies_count}} comments.
-                            </p>
-                        </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="color: #e27575;">
+                    <h3>详情页</h3>
+                </div>
+
+                <div class="card-body">
+                    <h3 class="text-center">
+                        <a href="{{ url($thread->path()) }}">{{ $thread->title }}</a>
+                    </h3>
+                    <a>用户 <b>{{ $thread->creator->name }}</b> 发布于 <b>{{-- $thread->created_at->diffForHumans() --}}</b></a>
+                    <div class="card-body">
+                        {!! $thread->body !!}
                     </div>
+                    <div class="card-footer">
+                        <a>浏览量：{{ $thread->visits }}</a> |
+                        <a href="{{ $thread->path() }}">评论：{{ $thread->replies_count }}</a>
+                    </div>
+                    @include('threads.reply')
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-8">
-                @foreach ($thread->replies as $reply)
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            {{ $reply->body }}
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
     </div>
+</div>
 @endsection
