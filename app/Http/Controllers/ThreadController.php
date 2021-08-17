@@ -9,8 +9,9 @@ class ThreadController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only('store');
+        $this->middleware('auth')->except('index', 'show');
     }
+
     public function index()
     {
         $threads = Thread::all();
@@ -23,12 +24,17 @@ class ThreadController extends Controller
         return view('threads.show', compact('thread'));
     }
 
+    public function create()
+    {
+        return view('threads.create');
+    }
+
     public function store(Request $request)
     {
         $thread = Thread::create()->all([
             'user_id' => Auth::id(),
             'title' => $request->title,
-            'body' => $request->body
+            'body' => $request->body,
         ]);
 
         if ($thread == true){

@@ -1,5 +1,5 @@
 <div class="card-body">
-    @if(auth()->check())
+    @auth
         <form action="{{ url($thread->path() . '/replies') }}" method="post">
             @csrf
             <div class="form-group">
@@ -9,13 +9,13 @@
                 评论
             </button>
         </form>
+
+        @foreach ($thread->replies as $reply)
+            <div class="card-body">
+                {{$reply->owner->name}} <br />{!! $reply->body !!}<hr>
+            </div>
+        @endforeach
     @else
         <a href="{{ route('login') }}">请点击此处</a>登录后评论
-    @endif
-
-    @foreach ($thread->replies as $reply)
-        <div class="card-body">
-            {{$reply->owner->name}} <br />{!! $reply->body !!}<hr>
-        </div>
-    @endforeach
+    @endauth
 </div>
