@@ -10,7 +10,7 @@ class ThreadController extends Controller
     public function index()
     {
         $threads = Thread::all();
-        //return $threads;
+
         return view('threads.index', compact('threads'));
     }
 
