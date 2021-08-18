@@ -31,13 +31,19 @@ class ThreadController extends Controller
 
     public function store(Request $request)
     {
-        $thread = Thread::create()->all([
-            'user_id' => Auth::id(),
-            'title' => $request->title,
-            'body' => $request->body,
+        $this->validate(request(),[
+            'title' => 'required|max:100|min:2',
+            'body' => 'required|min:3'
+        ]);
+
+        $thread = $request->user()->threads()->create([
+            'title' => $request->get('title'),
+            'body' => $request->get('body'),
+            'channel_id' => 1
         ]);
 
         if ($thread == true){
+            $thread->save();
             return redirect($thread->path());
         }
     }

@@ -22,4 +22,15 @@ class Thread extends Model
     {
         return $this->hasMany(Reply::class);
     }
+
+    //返回slug地址，利于SEO
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+
+        if (! $this->exists)
+        {
+            $this->attributes['slug'] = str_replace(' ', '-', $value);
+        }
+    }
 }
