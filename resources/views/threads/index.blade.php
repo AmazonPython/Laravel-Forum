@@ -12,15 +12,15 @@
                 <div class="card-body">
                     @forelse ($threads as $thread)
                         <h3 class="text-center">
-                            <a href="{{ url($thread->path()) }}">{{ $thread->title }}</a>
+                            <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
                         </h3>
-                        <a>用户 <b>{{ $thread->creator->name }}</b> 发布于 <b>{{-- $thread->created_at->diffForHumans() --}}</b></a>
+                        <a>用户 <b>{{ $thread->creator->name }}</b> 发布于 <b>{{ $thread->created_at->diffForHumans() }}</b></a>
                         <div class="card-body">
                             {!! $thread->body !!}
                         </div>
                         <div class="card-footer">
                             <a>浏览量：{{ $thread->visits }}</a> |
-                            <a href="{{ $thread->path() }}">评论：{{ $thread->replies_count }}</a>
+                            <a href="{{ $thread->path() }}" style="text-decoration: none;">评论：{{ $thread->replies_count }}</a>
                         </div><br />
                     @empty
                         <div class="card-body">目前尚无相关结果(=￣ω￣=)···</div>
