@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Channel;
 use Auth;
 use App\Reply;
 use App\Thread;
@@ -14,7 +15,7 @@ class ReplyController extends Controller
         $this->middleware('auth');
     }
 
-    public function store($id, Request $request)
+    public function store(Channel $channel, $id, Request $request)
     {
         $this->validate(request(),[
             'body' => 'required|min:3',

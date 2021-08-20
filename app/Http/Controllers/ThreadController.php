@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Thread;
+use App\Channel;
 use Illuminate\Http\Request;
 
 class ThreadController extends Controller
@@ -19,27 +20,30 @@ class ThreadController extends Controller
         return view('threads.index', compact('threads'));
     }
 
-    public function show(Thread $thread)
+    public function show(Channel $channel, Thread $thread)
     {
-        return view('threads.show', compact('thread'));
+        return view('threads.show', compact('thread', 'channel'));
     }
 
     public function create()
     {
-        return view('threads.create');
+        $channels = Channel::all();
+
+        return view('threads.create', compact('channels'));
     }
 
     public function store(Request $request)
     {
         $this->validate(request(),[
             'title' => 'required|max:100|min:2',
-            'body' => 'required|min:3'
+            'body' => 'required|min:3',
+            'channel_id' => 'required|exists:channels,id'
         ]);
 
         $thread = $request->user()->threads()->create([
-            'title' => $request->get('title'),
-            'body' => $request->get('body'),
-            'channel_id' => 1
+            'title' => request('title'),
+            'body' => request('body'),
+            'channel_id' => request('channel_id'),
         ]);
 
         if ($thread == true){

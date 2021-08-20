@@ -14,7 +14,17 @@
                         <form method="post" action="{{ url('threads') }}">
                             @csrf
                             <div class="form-group">
-                                <input name="title" type="text" class="form-control" placeholder="标题" value="{{ old('title') }}">
+                                <select name="channel_id" id="channel_id" class="form-control" required>
+                                    <option value="">点击选择一个频道···</option>
+                                    @foreach ($channels as $channel)
+                                        <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>
+                                            {{ $channel->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input name="title" type="text" class="form-control" placeholder="标题" value="{{ old('title') }}" required>
                             </div>
                             <div class="form-group">
                                 <textarea name="body" class="form-control" placeholder="内容">{{ old('body') }}</textarea>
