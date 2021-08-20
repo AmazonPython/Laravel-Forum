@@ -23,7 +23,7 @@
                             <a href="{{ $thread->path() }}">评论：{{ $thread->replies_count }}</a>
                         </div><br />
                     @empty
-                        <div class="card-body">目前尚无相关结果(=￣ω￣=)···</div>>
+                        <div class="card-body">目前尚无相关结果(=￣ω￣=)···</div>
                     @endforelse
                 </div>
             </div>

@@ -17,7 +17,7 @@
                                 <select name="channel_id" id="channel_id" class="form-control" required>
                                     <option value="">点击选择一个频道···</option>
                                     @foreach ($channels as $channel)
-                                        <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>
+                                        <option value="{{ $channel->id }}">
                                             {{ $channel->name }}
                                         </option>
                                     @endforeach
