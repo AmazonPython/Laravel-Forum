@@ -16,6 +16,6 @@
             </div>
         @endforeach
     @else
-        <a href="{{ route('login') }}">请点击此处</a>登录后评论
+        <a href="{{ route('login') }}" style="text-decoration: none;">请点击此处</a>登录后评论
     @endauth
 </div>

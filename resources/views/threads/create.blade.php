@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@auth
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -10,35 +11,30 @@
                 </div>
 
                 <div class="card-body">
-                    @auth
-                        <form method="post" action="{{ url('threads') }}">
-                            @csrf
-                            <div class="form-group">
-                                <select name="channel_id" id="channel_id" class="form-control" required>
-                                    <option value="">点击选择一个频道···</option>
-                                    @foreach ($channels as $channel)
-                                        <option value="{{ $channel->id }}">
-                                            {{ $channel->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input name="title" type="text" class="form-control" placeholder="标题" value="{{ old('title') }}" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="body" class="form-control" placeholder="内容">{{ old('body') }}</textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">
-                                发送
-                            </button>
-                        </form>
-                    @else
-                        <a href="{{ route('login') }}">请点击此处</a>登录后发帖
-                    @endauth
+                    <form method="post" action="{{ url('threads') }}">
+                        @csrf
+                        <div class="form-group">
+                            <select name="channel_id" id="channel_id" class="form-control" required>
+                                <option value="">点击选择一个频道···</option>
+                                @foreach ($channels as $channel)
+                                    <option value="{{ $channel->id }}">{{ $channel->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input name="title" type="text" class="form-control" placeholder="标题" value="{{ old('title') }}" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="body" class="form-control" placeholder="内容">{{ old('body') }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            发送
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endauth
 @endsection
