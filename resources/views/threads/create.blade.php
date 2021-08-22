@@ -25,7 +25,7 @@
                             <input name="title" type="text" class="form-control" placeholder="标题" value="{{ old('title') }}" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="body" class="form-control" placeholder="内容">{{ old('body') }}</textarea>
+                            <textarea name="body" class="form-control" placeholder="内容" required>{{ old('body') }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             发送

@@ -13,15 +13,17 @@
                     <h3 class="text-center">
                         <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
                     </h3>
-                    <a>用户 <b>{{ $thread->creator->name }}</b> 发布于 <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+                    <a><b>{{ $thread->creator->name }}</b> 发布于 <b>{{ $thread->created_at->diffForHumans() }}</b></a>
                     <div class="card-body">
                         {!! $thread->body !!}
                     </div>
                     <div class="card-footer">
-                        <a>浏览量：{{ $thread->visits }}</a> |
-                        <a href="{{ $thread->path() }}" style="text-decoration: none;">评论：{{ $thread->replies_count }}</a>
+                        <div class="card-title">
+                            <a>浏览量：{{ $thread->visits }}</a> |
+                            <a href="{{ $thread->path() }}" style="text-decoration: none;">评论：{{ $thread->replies_count }}</a>
+                        </div>
+                        @include('threads.reply')
                     </div>
-                    @include('threads.reply')
                 </div>
             </div>
         </div>
