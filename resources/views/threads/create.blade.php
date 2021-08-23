@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    发帖 - {{ config('app.name') }}
+@endsection
+
 @section('content')
 @auth
 <div class="container">
