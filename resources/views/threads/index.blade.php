@@ -18,10 +18,10 @@
                         <h3 class="text-center">
                             <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
                         </h3>
-                        <a><b>{{ $thread->creator->name }}</b> 发布于 <b>{{ $thread->created_at->diffForHumans() }}</b></a>
-                        <div class="card-body">
-                            {!! $thread->body !!}
-                        </div>
+                        <a>
+                            <b>{{ $thread->creator->name }}</b> 发布于 <b>{{ $thread->created_at->diffForHumans() }}</b>
+                        </a><br /><br />
+                        <p>{!! Str::limit($thread->body, 255) !!}</p>
                         <div class="card-footer">
                             <a>浏览量：{{ $thread->visits }}</a> |
                             <a href="{{ $thread->path() }}" style="text-decoration: none;">评论：{{ $thread->replies_count }}</a>
