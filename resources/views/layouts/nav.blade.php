@@ -21,7 +21,7 @@
                        aria-expanded="false">频道 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        @foreach (App\Channel::all() as $channel)
+                        @foreach ($channels as $channel)
                             <li>
                                 <a href="/threads/{{ $channel->slug }}" class="dropdown-item">{{ $channel->name }}</a>
                             </li>
