@@ -11,11 +11,20 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="dropdown">
-                    <a href="{{ url('threads') }}" class="nav-link">帖子</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">浏览 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="/threads" class="dropdown-item">帖子</a></li>
+                        @auth
+                            <li><a href="/threads?by={{ auth()->user()->name }}" class="dropdown-item">我的帖子</a></li>
+                        @endauth
+                        <li><a href="" class="dropdown-item">热门帖子</a></li>
+                        <li><a href="" class="dropdown-item">未读帖子</a></li>
+                    </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="{{ url('threads/create') }}" class="nav-link">发布帖子</a>
-                </li>
+                <li><a href="{{ url('threads/create') }}" class="nav-link">发布帖子</a></li>
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">频道 <span class="caret"></span>
