@@ -13,12 +13,13 @@
                 <li class="dropdown">
                     <a href="{{ url('threads') }}" class="nav-link">帖子</a>
                 </li>
-
+                <li class="dropdown">
+                    <a href="{{ url('threads/create') }}" class="nav-link">发布帖子</a>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">频道 <span class="caret"></span>
                     </a>
-
                     <ul class="dropdown-menu">
                         @foreach (App\Channel::all() as $channel)
                             <li>
