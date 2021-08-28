@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Filters\ThreadFilters;
 
 class Thread extends Model
 {
@@ -21,6 +22,16 @@ class Thread extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class)->latest();
+    }
+
+    public function addReply($reply)
+    {
+        $this->replies()->create($reply);
+    }
+
+    public function scopefilter($query, ThreadFilters $filters)
+    {
+        return $filters->apply($query);
     }
 
     //返回slug地址，利于SEO
