@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    个人中心 - {{ Auth::user()->name }}
+    {{ Auth::user()->name }}的个人中心 - {{ config('app.name') }}
 @endsection
 
 @section('content')
