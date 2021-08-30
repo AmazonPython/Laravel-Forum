@@ -32,9 +32,13 @@ class ThreadController extends Controller
         return $threads->get();
     }
 
-    public function show(Channel $channel, Thread $thread)
+    public function show($channel, Thread $thread)
     {
-        return view('threads.show', compact('thread', 'channel'));
+        //return view('threads.show', compact('thread'));
+        return view('threads.show', [
+            'thread' => $thread,
+            'replies' => $thread->replies()->paginate(2)
+        ]);
     }
 
     public function create()

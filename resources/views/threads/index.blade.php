@@ -18,14 +18,17 @@
                         <h3 class="text-center">
                             <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
                         </h3>
-                        <a>
-                            <b>{{ $thread->creator->name }}</b> 发布于 <b>{{ $thread->created_at->diffForHumans() }}</b>
-                        </a><br /><br />
-                        <p>{!! Str::limit($thread->body, 255) !!}</p>
-                        <div class="card-footer">
-                            <a>浏览量：{{ $thread->visits }}</a> |
-                            <a href="{{ $thread->path() }}" style="text-decoration: none;">评论：{{ $thread->replies_count }}</a>
-                        </div><br /><br />
+                        <div class="card-header">
+                            <a><b>{{ $thread->creator->name }}</b> 发布于 <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+                            <br />已有
+                            <a><b>{{ $thread->visits }}</b> 次阅读，</a>
+                            <a><b>{{ $thread->replies_count }}</b> 条评论</a>
+                        </div>
+
+                        <div class="card-body">
+                            <p class="lead">{!! Str::limit($thread->body, 255) !!}</p>
+                        </div>
+                        <br /><hr>
                     @empty
                         <div class="card-body">目前尚无相关结果(=￣ω￣=)···</div>
                     @endforelse
