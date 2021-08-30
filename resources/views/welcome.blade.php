@@ -1,100 +1,41 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+@section('title')
+    欢迎来到{{ config('app.name') }}
+@endsection
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@section('content')
+<div class="container">
+    <div class="py-5 text-center">
+        <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        <p align="center">
+            <a href="https://travis-ci.org/laravel/framework">
+                <img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status">
+            </a>
+            <a href="https://packagist.org/packages/laravel/framework">
+                <img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads">
+            </a>
+            <a href="https://packagist.org/packages/laravel/framework">
+                <img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version">
+            </a>
+            <a href="https://packagist.org/packages/laravel/framework">
+                <img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License">
+            </a>
+        </p>
+    </div>
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">个人中心</a>
-                    @else
-                        <a href="{{ route('login') }}">登录</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">注册</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h1 class="featurette-heading"><span class="text-muted">本论坛基于 Laravel 构建。</span></h1>
+            <p class="lead">
+                我们致力于交流计算机科学技术，并试图让全世界听见我们的声音。想试试世界上最好的语言 PHP？
+                欢迎贡献代码，喜欢的话可以为该项目点亮一颗小星星。最后补充一句，Take care of yourself. Happy Coding!
+            </p>
         </div>
-    </body>
-</html>
+        <div class="col-md-5 order-md-1">
+            <img src="{{ asset('images/profile-first-issue.svg') }}" alt="banner-img">
+        </div>
+    </div>
+</div>
+@endsection

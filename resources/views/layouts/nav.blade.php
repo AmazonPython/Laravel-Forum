@@ -16,9 +16,9 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="/threads" class="dropdown-item">帖子</a></li>
+                        <li><a href="{{ url('threads') }}" class="dropdown-item">帖子</a></li>
                         @auth
-                            <li><a href="/threads?by={{ auth()->user()->name }}" class="dropdown-item">我的帖子</a></li>
+                            <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">我的帖子</a></li>
                         @endauth
                         <li><a href="" class="dropdown-item">热门帖子</a></li>
                         <li><a href="" class="dropdown-item">未读帖子</a></li>
@@ -32,7 +32,7 @@
                     <ul class="dropdown-menu">
                         @foreach ($channels as $channel)
                             <li>
-                                <a href="/threads/{{ $channel->slug }}" class="dropdown-item">{{ $channel->name }}</a>
+                                <a href="{{ url('threads/' . $channel->slug) }}" class="dropdown-item">{{ $channel->name }}</a>
                             </li>
                         @endforeach
                     </ul>
