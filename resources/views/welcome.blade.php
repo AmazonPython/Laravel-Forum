@@ -34,7 +34,7 @@
             </p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="{{ asset('images/profile-first-issue.svg') }}" alt="banner-img">
+            <img src="{{ asset('images/profile-first-issue.svg') }}" class="featurette-image img-fluid mx-auto" alt="banner-img">
         </div>
     </div>
 </div>
