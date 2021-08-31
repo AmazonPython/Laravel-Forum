@@ -1,0 +1,55 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | System messages Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines are used by the system messages to Support language
+    | localization. that we need to display to the user. You are free to modify
+    | these language lines according to your application's requirements.
+    |
+    */
+
+    'nav_browse' =>'Browse',
+    'nav_all_threads'=>'All Threads',
+    'nav_my_threads'=>'My Threads',
+    'nav_popular_threads'=>'Popular Threads',
+    'nav_unanswered_threads'=>'Unanswered Threads',
+    'nav_new_thread'=>'New Thread',
+    'nav_channels'=>'Channels',
+    'nav_login'=>'Login',
+    'nav_register'=>'Register',
+    'nav_home'=>'Home',
+    'nav_logout'=>'Logout',
+
+    'welcome_title' => 'Welcome to ',
+    'welcome_featurette_heading' => 'The forum is build based on Laravel.',
+    'welcome_featurette-text' => 'We are committed to exchanging computer science and technology and trying to make our voices heard all over the world. Want to try PHP, the best language in the world? Welcome to contribute code. If you like, you can light up a small star for the project. Finally, take care of yourself and happy coding!',
+
+    'threads_index_title' => 'Threads page',
+    'threads_index_published' => 'This thread was published',
+    'threads_index_there_have_been' => 'There have been',
+    'threads_visits' => 'visits,',
+    'threads_replies' => 'replies.',
+    'threads_index_empty' => 'There are no relevant results at this time(=￣ω￣=)...',
+
+    'threads_show_title' => 'Detail page',
+    'threads_reply_placeholder' => 'Is there anything you want to say?',
+    'threads_reply_button' => 'Reply',
+    'threads_replied' => 'replied',
+    'threads_login_to_reply' => 'Please click here to login to comment',
+
+    'threads_create_title' => 'Create a New Thread',
+    'threads_choose_channel' => 'Choose a Channel...',
+    'threads_title' => 'title',
+    'threads_content' => 'content',
+    'threads_publish_thread' => 'Publish',
+    'threads_create_errors' => 'Oops! There seems to be a problem with your input.',
+
+    'home_title' => '\'s personal home page',
+    'home_welcome_back' => 'welcome back, ',
+
+];

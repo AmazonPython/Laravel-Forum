@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    欢迎来到{{ config('app.name') }}
+    {{ trans('messages.welcome_title') }}{{ config('app.name') }}
 @endsection
 
 @section('content')
@@ -27,10 +27,9 @@
 
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
-            <h1 class="featurette-heading"><span class="text-muted">本论坛基于 Laravel 构建。</span></h1>
+            <h1 class="featurette-heading"><span class="text-muted">{{ trans('messages.welcome_featurette_heading') }}</span></h1>
             <p class="lead">
-                我们致力于交流计算机科学技术，并试图让全世界听见我们的声音。想试试世界上最好的语言 PHP？
-                欢迎贡献代码，喜欢的话可以为该项目点亮一颗小星星。最后补充一句，Take care of yourself. Happy Coding!
+                {{ trans('messages.welcome_featurette-text')}}
             </p>
         </div>
         <div class="col-md-5 order-md-1">

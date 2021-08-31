@@ -12,22 +12,22 @@
             <ul class="navbar-nav mr-auto">
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">浏览 <span class="caret"></span>
+                       aria-expanded="false">{{ trans('messages.nav_browse') }} <span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('threads') }}" class="dropdown-item">帖子</a></li>
+                        <li><a href="{{ url('threads') }}" class="dropdown-item">{{ trans('messages.nav_all_threads') }}</a></li>
                         @auth
-                            <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">我的帖子</a></li>
+                            <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">{{ trans('messages.nav_my_threads') }}</a></li>
                         @endauth
-                        <li><a href="" class="dropdown-item">热门帖子</a></li>
-                        <li><a href="" class="dropdown-item">未读帖子</a></li>
+                        <li><a href="" class="dropdown-item">{{ trans('messages.nav_popular_threads') }}</a></li>
+                        <li><a href="" class="dropdown-item">{{ trans('messages.nav_unanswered_threads') }}</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ url('threads/create') }}" class="nav-link">发布帖子</a></li>
+                <li><a href="{{ url('threads/create') }}" class="nav-link">{{ trans('messages.nav_new_thread') }}</a></li>
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">频道 <span class="caret"></span>
+                       aria-expanded="false">{{ trans('messages.nav_channels') }} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach ($channels as $channel)
@@ -41,14 +41,32 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                @php $locale = session()->get('locale'); @endphp
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        @switch($locale)
+                            @case('en')
+                            <img src="{{ asset('images/en.png') }}" width="30px" height="20x"> English
+                            @break
+                            @default
+                            <img src="{{ asset('images/zh-CN.png') }}" width="30px" height="20x"> 中文
+                        @endswitch
+                            <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('lang', 'en') }}"><img src="{{ asset('images/en.png') }}" width="30px" height="20x"> English</a>
+                            <a class="dropdown-item" href="{{ route('lang', 'zh-CN') }}"><img src="{{ asset('images/zh-CN.png') }}" width="30px" height="20x"> Chinese</a>
+                        </div>
+                    </li>
+
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">登录</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ trans('messages.nav_login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">注册</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ trans('messages.nav_register') }}</a>
                         </li>
                     @endif
                 @else
@@ -59,12 +77,12 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('home') }}">
-                                个人中心
+                                {{ trans('messages.nav_home') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                登出
+                                {{ trans('messages.nav_logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

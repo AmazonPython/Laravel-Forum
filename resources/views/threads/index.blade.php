@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    首页 - {{ config('app.name') }}
+    {{ trans('messages.threads_index_title') }} - {{ config('app.name') }}
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" style="color: #e27575;">
-                    <h3>首页</h3>
+                    <h3>{{ trans('messages.threads_index_title') }}</h3>
                 </div>
 
                 <div class="card-body">
@@ -19,10 +19,10 @@
                             <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
                         </h3>
                         <div class="card-header">
-                            <a><b>{{ $thread->creator->name }}</b> 发布于 <b>{{ $thread->created_at->diffForHumans() }}</b></a>
-                            <br />已有
-                            <a><b>{{ $thread->visits }}</b> 次阅读，</a>
-                            <a><b>{{ $thread->replies_count }}</b> 条评论</a>
+                            <a><b>{{ $thread->creator->name }}</b> {{ trans('messages.threads_index_published') }} <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+                            <br />{{ trans('messages.threads_index_there_have_been') }}
+                            <a><b>{{ $thread->visits }}</b> {{ trans('messages.threads_visits') }}</a>
+                            <a><b>{{ $thread->replies_count }}</b> {{ trans('messages.threads_replies') }}</a>
                         </div>
 
                         <div class="card-body">
@@ -30,7 +30,7 @@
                         </div>
                         <br /><hr>
                     @empty
-                        <div class="card-body">目前尚无相关结果(=￣ω￣=)···</div>
+                        <div class="card-body">{{ trans('messages.threads_index_empty') }}</div>
                     @endforelse
                 </div>
             </div>
