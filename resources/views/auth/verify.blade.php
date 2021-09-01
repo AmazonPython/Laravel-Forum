@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    邮箱验证 - {{ config('app.name') }}
+    {{ trans('messages.auth_verify') }} - {{ config('app.name') }}
 @endsection
 
 @section('content')
@@ -9,20 +9,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">验证您的电子邮件地址</div>
+                <div class="card-header">{{ trans('messages.auth_verify_email_address') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            已将新的验证链接发送到您的电子邮件地址
+                            {{ trans('messages.auth_verify_email_address_alert_success') }}
                         </div>
                     @endif
 
-                        继续之前，请检查您的电子邮件中的验证链接。
-                        如果你没有收到邮件，
+                    {{ trans('messages.auth_verify_email_address_alert_wait') }}
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">单击此处请求另一个</button>。
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ trans('messages.auth_verify_resend') }}</button>
                     </form>
                 </div>
             </div>

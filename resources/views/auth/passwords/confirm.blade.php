@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    重置密码 - {{ config('app.name') }}
+    {{ trans('messages.auth_confirm_password') }} - {{ config('app.name') }}
 @endsection
 
 @section('content')
@@ -9,16 +9,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">确认密码</div>
+                <div class="card-header">{{ trans('messages.auth_confirm_password') }}</div>
 
                 <div class="card-body">
-                    继续之前，请确认您的密码。
+                    {{ trans('messages.auth_confirm_password_befor') }}
 
                     <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">密码</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ trans('messages.auth_password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -34,12 +34,12 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    确认密码
+                                    {{ trans('messages.auth_confirm_password') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        忘记密码？
+                                        {{ trans('messages.auth_forgot_password') }}
                                     </a>
                                 @endif
                             </div>

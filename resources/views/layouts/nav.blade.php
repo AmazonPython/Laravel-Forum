@@ -54,19 +54,23 @@
                             <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('lang', 'en') }}"><img src="{{ asset('images/en.png') }}" width="30px" height="20x"> English</a>
-                            <a class="dropdown-item" href="{{ route('lang', 'zh-CN') }}"><img src="{{ asset('images/zh-CN.png') }}" width="30px" height="20x"> Chinese</a>
+                            <a class="dropdown-item" href="{{ route('lang', 'zh-CN') }}">
+                                <img src="{{ asset('images/zh-CN.png') }}" width="30px" height="20x"> Chinese
+                            </a>
+                            <a class="dropdown-item" href="{{ route('lang', 'en') }}">
+                                <img src="{{ asset('images/en.png') }}" width="30px" height="20x"> English
+                            </a>
                         </div>
                     </li>
 
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ trans('messages.nav_login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ trans('messages.auth_login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ trans('messages.nav_register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ trans('messages.auth_register') }}</a>
                         </li>
                     @endif
                 @else
@@ -77,12 +81,12 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('home') }}">
-                                {{ trans('messages.nav_home') }}
+                                {{ trans('messages.auth_home') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ trans('messages.nav_logout') }}
+                                {{ trans('messages.auth_logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
