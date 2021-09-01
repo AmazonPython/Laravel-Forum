@@ -11,7 +11,14 @@
         @foreach ($replies as $reply)
             <br />
             <div class="card-header">
-                <a><b>{{ $reply->owner->name }}</b> {{ trans('messages.threads_replied') }} <b>{{ $reply->created_at->diffForHumans() }}</b></a><br />
+                <a><b>{{ $reply->owner->name }}</b> {{ trans('messages.threads_replied') }} <b>{{ $reply->created_at->diffForHumans() }}</b>
+                    <form action="/replies/{{ $reply->id }}}/favorites" method="post" class="float-right">
+                        @csrf
+                        <button type="submit" class="btn btn-primary" {{ $reply->isFavorited() ? 'disabled' : '' }}>
+                            {{ $reply->favorites()->count() }} 赞赏
+                        </button>
+                    </form><br />
+                </a><br />
             </div>
             <div class="card-header">{!! $reply->body !!}</div>
         @endforeach
@@ -20,7 +27,11 @@
         @foreach ($thread->replies as $reply)
             <br />
             <div class="card-header">
-                <a><b>{{ $reply->owner->name }}</b> {{ trans('messages.threads_replied') }} <b>{{ $reply->created_at->diffForHumans() }}</b></a><br />
+                <a><b>{{ $reply->owner->name }}</b> {{ trans('messages.threads_replied') }} <b>{{ $reply->created_at->diffForHumans() }}</b>
+                    <button type="submit" class="btn btn-primary float-right">
+                        {{ $reply->favorites()->count() }} 赞赏
+                    </button><br />
+                </a><br />
             </div>
             <div class="card-header">{!! $reply->body !!}</div>
         @endforeach
