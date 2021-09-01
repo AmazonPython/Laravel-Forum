@@ -20,7 +20,7 @@
                         @auth
                             <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">{{ trans('messages.nav_my_threads') }}</a></li>
                         @endauth
-                        <li><a href="" class="dropdown-item">{{ trans('messages.nav_popular_threads') }}</a></li>
+                        <li><a href="{{ url('threads' . '?popular=1') }}" class="dropdown-item">{{ trans('messages.nav_popular_threads') }}</a></li>
                         <li><a href="" class="dropdown-item">{{ trans('messages.nav_unanswered_threads') }}</a></li>
                     </ul>
                 </li>

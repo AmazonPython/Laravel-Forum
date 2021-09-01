@@ -63,6 +63,7 @@ class ThreadController extends Controller
 
         if ($thread == true){
             $thread->save();
+
             return redirect($thread->path());
         }
     }
