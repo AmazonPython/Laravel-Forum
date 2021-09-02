@@ -55,6 +55,7 @@ return [
     'threads_show_title' => 'Detail page',
     'threads_reply_placeholder' => 'Is there anything you want to say?',
     'threads_reply_button' => 'Reply',
+    'threads_reply_favorite' => 'favorite',
     'threads_replied' => 'replied',
     'threads_login_to_reply' => 'Please click here to login to comment',
 

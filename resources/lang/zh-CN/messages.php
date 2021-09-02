@@ -55,6 +55,7 @@ return [
     'threads_show_title' => '详情页',
     'threads_reply_placeholder' => '有什么想要说的吗？',
     'threads_reply_button' => '回复',
+    'threads_reply_favorite' => '赞赏',
     'threads_replied' => '回复于',
     'threads_login_to_reply' => '请点击此处登录后评论',
 

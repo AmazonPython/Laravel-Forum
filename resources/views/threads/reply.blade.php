@@ -14,8 +14,8 @@
                 <a><b>{{ $reply->owner->name }}</b> {{ trans('messages.threads_replied') }} <b>{{ $reply->created_at->diffForHumans() }}</b>
                     <form action="/replies/{{ $reply->id }}}/favorites" method="post" class="float-right">
                         @csrf
-                        <button type="submit" class="btn btn-primary" {{ $reply->isFavorited() ? 'disabled' : '' }}>
-                            {{ $reply->favorites()->count() }} 赞赏
+                        <button type="submit" class="btn btn-primary" {{ $reply->isFavorited() ? 'disabled' : '' }} title="{{ trans('messages.threads_reply_favorite') }}">
+                            {{ $reply->favorites()->count() }} ❤️
                         </button>
                     </form><br />
                 </a><br />
@@ -28,8 +28,8 @@
             <br />
             <div class="card-header">
                 <a><b>{{ $reply->owner->name }}</b> {{ trans('messages.threads_replied') }} <b>{{ $reply->created_at->diffForHumans() }}</b>
-                    <button type="submit" class="btn btn-primary float-right">
-                        {{ $reply->favorites()->count() }} 赞赏
+                    <button type="submit" class="btn btn-primary float-right" title="{{ trans('messages.threads_reply_favorite') }}">
+                        {{ $reply->favorites()->count() }} {{ trans('messages.threads_reply_favorite') }}
                     </button><br />
                 </a><br />
             </div>
