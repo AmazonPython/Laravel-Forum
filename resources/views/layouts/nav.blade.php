@@ -58,7 +58,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('home') }}">
+                            <a class="dropdown-item" href="{{ route('profile', Auth::user()) }}">
                                 {{ trans('messages.auth_home') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"

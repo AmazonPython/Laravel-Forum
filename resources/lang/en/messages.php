@@ -66,6 +66,8 @@ return [
     'threads_publish_thread' => 'Publish',
     'threads_create_errors' => 'Oops! There seems to be a problem with your input.',
 
+    'threads_delete' => 'Delete',
+
     'home_title' => '\'s personal home page',
     'home_welcome_back' => 'welcome back, ',
 

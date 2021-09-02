@@ -66,6 +66,8 @@ return [
     'threads_publish_thread' => '发布',
     'threads_create_errors' => '哎呀！看起来你的输入好像有点问题。',
 
+    'threads_delete' => '删除',
+
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来，',
 

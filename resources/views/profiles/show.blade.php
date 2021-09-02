@@ -16,7 +16,17 @@
             <div class="card-body">
                 @forelse ($threads as $thread)
                     <h3 class="text-center">
-                        <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
+                        <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}
+                            @auth
+                                <form action="{{ $thread->path() }}" method="post" class="float-right">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">
+                                        {{ trans('messages.threads_delete') }}
+                                    </button>
+                                </form><hr>
+                            @endauth
+                        </a>
                     </h3>
                     <div class="card-header">
                         <a><b>{{ $thread->creator->name }}</b> {{ trans('messages.threads_index_published') }} <b>{{ $thread->created_at->diffForHumans() }}</b></a>
