@@ -18,7 +18,8 @@
                         <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
                     </h3>
                     <div class="card-header">
-                        <a><b>{{ $thread->creator->name }}</b> {{ trans('messages.threads_index_published') }} <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+                        <a href="{{ route('profile', $thread->creator) }}" style="text-decoration: none;"><b>{{ $thread->creator->name }}</b> </a>
+                        <a>{{ trans('messages.threads_index_published') }} <b>{{ $thread->created_at->diffForHumans() }}</b></a>
                         <br />{{ trans('messages.threads_index_there_have_been') }}
                         <a><b>{{ $thread->visits }}</b> {{ trans('messages.threads_visits') }}</a>
                         <a><b>{{ $thread->replies_count }}</b> {{ trans('messages.threads_replies') }}</a>

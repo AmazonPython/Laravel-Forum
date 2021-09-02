@@ -70,5 +70,5 @@ return [
     'home_welcome_back' => 'welcome back, ',
 
     'profiles_title' => 'User Profile',
-
+    'profiles_joined' => 'Joined'
 ];

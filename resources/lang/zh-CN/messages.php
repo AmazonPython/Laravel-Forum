@@ -70,5 +70,6 @@ return [
     'home_welcome_back' => '欢迎回来，',
 
     'profiles_title' => '个人简介',
+    'profiles_joined' => '加入于'
 
 ];
