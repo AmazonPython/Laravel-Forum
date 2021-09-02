@@ -69,4 +69,6 @@ return [
     'home_title' => '\'s personal home page',
     'home_welcome_back' => 'welcome back, ',
 
+    'profiles_title' => 'User Profile',
+
 ];

@@ -69,4 +69,6 @@ return [
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来，',
 
+    'profiles_title' => '个人简介',
+
 ];
