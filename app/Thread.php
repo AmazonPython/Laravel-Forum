@@ -9,6 +9,8 @@ class Thread extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['creator', 'channel'];
+
     protected static function boot()
     {
         parent::boot();
@@ -25,12 +27,12 @@ class Thread extends Model
 
     public function creator()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function replies()
     {
-        return $this->hasMany(Reply::class)->latest();
+        return $this->hasMany(Reply::class)->withCount('favorites')->with('owner')->latest();
     }
 
     public function addReply($reply)
