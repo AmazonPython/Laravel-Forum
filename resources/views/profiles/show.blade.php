@@ -17,7 +17,7 @@
                 @forelse ($threads as $thread)
                     <h3 class="text-center">
                         <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}
-                            @auth
+                            @can('update', $thread)
                                 <form action="{{ $thread->path() }}" method="post" class="float-right">
                                     @csrf
                                     @method('DELETE')
@@ -25,7 +25,7 @@
                                         {{ trans('messages.threads_delete') }}
                                     </button>
                                 </form><hr>
-                            @endauth
+                            @endcan
                         </a>
                     </h3>
                     <div class="card-header">
