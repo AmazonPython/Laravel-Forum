@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ trans('messages.profiles_title') }} - {{ config('app.name') }}
+    @lang('messages.profiles_title') - {{ config('app.name') }}
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="page-header">
                 <h1>{{ $profileUser->name }}</h1>
-                <small>{{ trans('messages.profiles_joined') }} {{ $profileUser->created_at->diffForHumans() }}</small>
+                <small>@lang('messages.profiles_joined') {{ $profileUser->created_at->diffForHumans() }}</small>
             </div><br /><hr>
 
             <div class="card-body">
@@ -22,17 +22,17 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">
-                                        {{ trans('messages.threads_delete') }}
+                                        @lang('messages.threads_delete')
                                     </button>
                                 </form><hr>
                             @endcan
                         </a>
                     </h3>
                     <div class="card-header">
-                        <a><b>{{ $thread->creator->name }}</b> {{ trans('messages.threads_index_published') }} <b>{{ $thread->created_at->diffForHumans() }}</b></a>
-                        <br />{{ trans('messages.threads_index_there_have_been') }}
-                        <a><b>{{ $thread->visits }}</b> {{ trans('messages.threads_visits') }}</a>
-                        <a><b>{{ $thread->replies_count }}</b> {{ trans('messages.threads_replies') }}</a>
+                        <a><b>{{ $thread->creator->name }}</b> @lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+                        <br />@lang('messages.threads_index_there_have_been')
+                        <a><b>{{ $thread->visits }}</b> @lang('messages.threads_visits')</a>
+                        <a><b>{{ $thread->replies_count }}</b> @lang('messages.threads_replies')</a>
                     </div>
 
                     <div class="card-body">
@@ -40,7 +40,7 @@
                     </div>
                     <br /><hr>
                 @empty
-                    <div class="card-body">{{ trans('messages.threads_index_empty') }}</div>
+                    <div class="card-body">@lang('messages.threads_index_empty')</div>
                 @endforelse
             </div>
             {{ $threads->links() }}

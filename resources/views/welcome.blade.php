@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ trans('messages.welcome_title') }}{{ config('app.name') }}
+    @lang('messages.welcome_title'){{ config('app.name') }}
 @endsection
 
 @section('content')
@@ -27,9 +27,9 @@
 
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
-            <h1 class="featurette-heading"><span class="text-muted">{{ trans('messages.welcome_featurette_heading') }}</span></h1>
+            <h1 class="featurette-heading"><span class="text-muted">@lang('messages.welcome_featurette_heading')</span></h1>
             <p class="lead">
-                {{ trans('messages.welcome_featurette-text')}}
+                @lang('messages.welcome_featurette-text')
             </p>
         </div>
         <div class="col-md-5 order-md-1">

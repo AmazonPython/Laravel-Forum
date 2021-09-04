@@ -46,7 +46,7 @@ return [
     'welcome_featurette-text' => 'We are committed to exchanging computer science and technology and trying to make our voices heard all over the world. Want to try PHP, the best language in the world? Welcome to contribute code. If you like, you can light up a small star for the project. Finally, take care of yourself and happy coding!',
 
     'threads_index_title' => 'Threads page',
-    'threads_index_published' => 'This thread was published',
+    'threads_index_published' => 'published this thread',
     'threads_index_there_have_been' => 'There have been',
     'threads_visits' => 'visits,',
     'threads_replies' => 'replies.',

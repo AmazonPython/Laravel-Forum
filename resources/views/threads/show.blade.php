@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" style="color: #e27575;">
-                    <h3>{{ trans('messages.threads_show_title') }}</h3>
+                    <h3>@lang('messages.threads_show_title')</h3>
                 </div>
 
                 <div class="card-body">
@@ -19,10 +19,10 @@
                     </h3>
                     <div class="card-header">
                         <a href="{{ route('profile', $thread->creator) }}" style="text-decoration: none;"><b>{{ $thread->creator->name }}</b> </a>
-                        <a>{{ trans('messages.threads_index_published') }} <b>{{ $thread->created_at->diffForHumans() }}</b></a>
-                        <br />{{ trans('messages.threads_index_there_have_been') }}
-                        <a><b>{{ $thread->visits }}</b> {{ trans('messages.threads_visits') }}</a>
-                        <a><b>{{ $thread->replies_count }}</b> {{ trans('messages.threads_replies') }}</a>
+                        <a>@lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+                        <br />@lang('messages.threads_index_there_have_been')
+                        <a><b>{{ $thread->visits }}</b> @lang('messages.threads_visits')</a>
+                        <a><b>{{ $thread->replies_count }}</b> @lang('messages.threads_replies')</a>
                     </div>
 
                     <div class="card-body">

@@ -12,22 +12,22 @@
             <ul class="navbar-nav mr-auto">
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{ trans('messages.nav_browse') }} <span class="caret"></span>
+                       aria-expanded="false">@lang('messages.nav_browse') <span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('threads') }}" class="dropdown-item">{{ trans('messages.nav_all_threads') }}</a></li>
+                        <li><a href="{{ url('threads') }}" class="dropdown-item">@lang('messages.nav_all_threads')</a></li>
                         @auth
-                            <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">{{ trans('messages.nav_my_threads') }}</a></li>
+                            <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">@lang('messages.nav_my_threads')</a></li>
                         @endauth
-                        <li><a href="{{ url('threads' . '?popular=1') }}" class="dropdown-item">{{ trans('messages.nav_popular_threads') }}</a></li>
-                        <li><a href="" class="dropdown-item">{{ trans('messages.nav_unanswered_threads') }}</a></li>
+                        <li><a href="{{ url('threads' . '?popular=1') }}" class="dropdown-item">@lang('messages.nav_popular_threads')</a></li>
+                        <li><a href="" class="dropdown-item">@lang('messages.nav_unanswered_threads')</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ url('threads/create') }}" class="nav-link">{{ trans('messages.nav_new_thread') }}</a></li>
+                <li><a href="{{ url('threads/create') }}" class="nav-link">@lang('messages.nav_new_thread')</a></li>
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{ trans('messages.nav_channels') }} <span class="caret"></span>
+                       aria-expanded="false">@lang('messages.nav_channels') <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach ($channels as $channel)
@@ -44,11 +44,11 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ trans('messages.auth_login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">@lang('messages.auth_login')</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ trans('messages.auth_register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">@lang('messages.auth_register')</a>
                         </li>
                     @endif
                 @else
@@ -59,12 +59,12 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('profile', Auth::user()) }}">
-                                {{ trans('messages.auth_home') }}
+                                @lang('messages.auth_home')
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ trans('messages.auth_logout') }}
+                                @lang('messages.auth_logout')
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
