@@ -60,6 +60,7 @@ return [
     'threads_login_to_reply' => '请点击此处登录后评论',
 
     'threads_create_title' => '发布新贴',
+    'threads_create_editor' => 'zh-CN',
     'threads_choose_channel' => '点击选择一个频道···',
     'threads_title' => '标题',
     'threads_content' => '内容',

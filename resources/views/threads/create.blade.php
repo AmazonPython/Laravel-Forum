@@ -4,6 +4,16 @@
     @lang('messages.threads_create_title') - {{ config('app.name') }}
 @endsection
 
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/lang/summernote-zh-CN.js"></script><script type="text/javascript">
+        $('#summernote').summernote({
+            height: 400,
+            placeholder: '@lang('messages.threads_content')',
+            lang: '@lang('messages.threads_create_editor')'
+        });
+    </script>
+@endsection
+
 @section('content')
 @auth
 <div class="container">
@@ -32,7 +42,7 @@
                             <input name="title" type="text" class="form-control" placeholder="@lang('messages.threads_title')" value="{{ old('title') }}" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="body" class="form-control" placeholder="@lang('messages.threads_content')" rows="10" required>{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" id="summernote">{{ old('body') }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             @lang('messages.threads_publish_thread')

@@ -60,6 +60,7 @@ return [
     'threads_login_to_reply' => 'Please click here to login to comment',
 
     'threads_create_title' => 'Create a New Thread',
+    'threads_create_editor' => 'en-US',
     'threads_choose_channel' => 'Choose a Channel...',
     'threads_title' => 'title',
     'threads_content' => 'content',
