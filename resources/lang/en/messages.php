@@ -72,5 +72,7 @@ return [
     'home_welcome_back' => 'welcome back, ',
 
     'profiles_title' => 'User Profile',
-    'profiles_joined' => 'Joined'
+    'profiles_joined' => 'Joined',
+    'profiles_no_activity' => 'There is no activity for this user yet.'
+
 ];
