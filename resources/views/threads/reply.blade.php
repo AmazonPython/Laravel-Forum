@@ -13,6 +13,9 @@
     <form action="{{ url($thread->path() . '/replies') }}" method="post">
         @csrf
         <div class="form-group">
+            <span class="text-muted">@lang('messages.threads_discussion')</span>
+        </div>
+        <div class="form-group">
             <textarea class="form-control" name="body" id="summernote_reply">{{ old('body') }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">@lang('messages.threads_reply_button')</button>

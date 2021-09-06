@@ -54,6 +54,7 @@ return [
 
     'threads_show_title' => 'Detail page',
     'threads_reply_placeholder' => 'Is there anything you want to say?',
+    'threads_discussion'=> 'Contribute to the Discussion',
     'threads_reply_button' => 'Reply',
     'threads_reply_favorite' => 'favorite',
     'threads_replied' => 'replied',
