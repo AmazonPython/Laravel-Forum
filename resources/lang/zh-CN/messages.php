@@ -77,6 +77,8 @@ return [
 
     'profiles_title' => '个人简介',
     'profiles_joined' => '加入于',
-    'profiles_no_activity' => '此用户尚未执行任何活动。'
+    'profiles_no_activity' => '此用户尚未执行任何活动。',
+    'profiles_favorited_activity' => '赞赏了',
+    'profiles_favorited_reply_activity' => '的回复',
 
 ];

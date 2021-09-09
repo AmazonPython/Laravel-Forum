@@ -77,6 +77,8 @@ return [
 
     'profiles_title' => 'User Profile',
     'profiles_joined' => 'Joined',
-    'profiles_no_activity' => 'There is no activity for this user yet.'
+    'profiles_no_activity' => 'There is no activity for this user yet.',
+    'profiles_favorited_activity' => 'favorited',
+    'profiles_favorited_reply_activity' => '\'s reply',
 
 ];

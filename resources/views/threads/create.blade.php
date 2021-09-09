@@ -52,8 +52,7 @@
                             <input name="title" type="text" class="form-control" placeholder="@lang('messages.threads_title')" value="{{ old('title') }}" required>
                         </div>
                         <div class="form-group">
-                            {{--}}<textarea class="form-control" name="body" id="summernote">{{ old('body') }}</textarea>--}}
-                            <textarea class="form-control" name="body" id="editor"></textarea>
+                            <textarea class="form-control" name="body" id="editor">{{ old('body') }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             @lang('messages.threads_publish_thread')

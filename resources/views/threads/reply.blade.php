@@ -35,7 +35,7 @@
     @foreach ($replies as $reply)
         <br />
         <div class="card-header">
-            <a href="{{ route('profile', $reply->owner) }}" style="text-decoration: none;"><b>{{ $reply->owner->name }}</b> </a>
+            <a href="{{ route('profile', $reply->owner) }}" id="{{$thread->path()}}#reply-{{$reply->owner->name}}" style="text-decoration: none;"><b>{{ $reply->owner->name }}</b> </a>
             <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b>
                 <form action="/replies/{{ $reply->id }}}/favorites" method="post" class="float-right">
                     @csrf
