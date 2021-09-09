@@ -58,15 +58,17 @@ return [
     'threads_reply_button' => '回复',
     'threads_reply_favorite' => '赞赏',
     'threads_replied' => '回复于',
+    'threads_reply_success' => '您的回复已经留下。',
     'threads_login_to_reply' => '请点击此处登录后评论',
 
     'threads_create_title' => '发布新贴',
-    'threads_create_editor' => 'zh-CN',
+    'threads_create_editor' => 'zh_CN',
     'threads_choose_channel' => '点击选择一个频道···',
     'threads_title' => '标题',
     'threads_content' => '内容',
     'threads_publish_thread' => '发布',
     'threads_create_errors' => '哎呀！看起来你的输入好像有点问题。',
+    'threads_create_success' => '您的帖子已成功发布！',
 
     'threads_delete' => '删除',
 

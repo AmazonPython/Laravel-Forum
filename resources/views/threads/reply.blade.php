@@ -1,14 +1,25 @@
 <div class="card-body">
 @auth
-    @section('js')
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/lang/summernote-zh-CN.js"></script><script type="text/javascript">
-            $('#summernote_reply').summernote({
-                height: 400,
-                placeholder: '@lang('messages.threads_reply_placeholder')',
-                lang: '@lang('messages.threads_create_editor')'
-            });
-        </script>
-    @endsection
+
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@5.9.2/tinymce.min.js"></script>
+    <script src="{{ asset('tinymce4x_languages/langs/zh_CN.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#editor',
+            language: '@lang('messages.threads_create_editor')',
+            height: 400,
+            placeholder: '@lang('messages.threads_reply_placeholder')',
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste imagetools wordcount'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        });
+    </script>
+@endsection
 
     <form action="{{ url($thread->path() . '/replies') }}" method="post">
         @csrf
@@ -16,7 +27,7 @@
             <span class="text-muted">@lang('messages.threads_discussion')</span>
         </div>
         <div class="form-group">
-            <textarea class="form-control" name="body" id="summernote_reply">{{ old('body') }}</textarea>
+            <textarea class="form-control" name="body" id="editor">{{ old('body') }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">@lang('messages.threads_reply_button')</button>
     </form>

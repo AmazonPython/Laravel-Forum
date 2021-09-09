@@ -30,7 +30,8 @@ class ReplyController extends Controller
 
         if ($reply == true){
             $reply->save();
-            return redirect()->back();
+
+            return redirect()->back()->with('flash', trans('messages.threads_reply_success'));
         }
     }
 }

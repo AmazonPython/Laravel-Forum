@@ -58,15 +58,17 @@ return [
     'threads_reply_button' => 'Reply',
     'threads_reply_favorite' => 'favorite',
     'threads_replied' => 'replied',
+    'threads_reply_success' => 'Your reply has been left.',
     'threads_login_to_reply' => 'Please click here to login to comment',
 
     'threads_create_title' => 'Create a New Thread',
-    'threads_create_editor' => 'en-US',
+    'threads_create_editor' => 'en_GB',
     'threads_choose_channel' => 'Choose a Channel...',
     'threads_title' => 'title',
     'threads_content' => 'content',
     'threads_publish_thread' => 'Publish',
     'threads_create_errors' => 'Oops! There seems to be a problem with your input.',
+    'threads_create_success' => 'Your thread has been successfully published!',
 
     'threads_delete' => 'Delete',
 

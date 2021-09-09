@@ -64,7 +64,7 @@ class ThreadController extends Controller
         if ($thread == true){
             $thread->save();
 
-            return redirect($thread->path());
+            return redirect($thread->path())->with('flash', trans('messages.threads_create_success'));
         }
     }
 

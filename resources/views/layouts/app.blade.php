@@ -15,13 +15,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('favicon.ico') }}" sizes="48x48" rel="icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js" ></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
     <div id="app">
@@ -29,6 +26,8 @@
 
         <main class="py-4">
             @yield('content')
+                <!-- Vue通知消息渲染 -->
+                <flash message="{{ session('flash') }}"></flash>
             @include('partials.footer')
         </main>
     </div>

@@ -5,11 +5,21 @@
 @endsection
 
 @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/lang/summernote-zh-CN.js"></script><script type="text/javascript">
-        $('#summernote').summernote({
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@5.9.2/tinymce.min.js"></script>
+    <script src="{{ asset('tinymce4x_languages/langs/zh_CN.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#editor',
+            language: 'zh_CN',
             height: 400,
             placeholder: '@lang('messages.threads_content')',
-            lang: '@lang('messages.threads_create_editor')'
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste imagetools wordcount'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         });
     </script>
 @endsection
@@ -42,7 +52,8 @@
                             <input name="title" type="text" class="form-control" placeholder="@lang('messages.threads_title')" value="{{ old('title') }}" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="body" id="summernote">{{ old('body') }}</textarea>
+                            {{--}}<textarea class="form-control" name="body" id="summernote">{{ old('body') }}</textarea>--}}
+                            <textarea class="form-control" name="body" id="editor"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             @lang('messages.threads_publish_thread')
