@@ -33,7 +33,7 @@
             </p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="https://octodex.github.com/images/tentocats.jpg" class="featurette-image img-fluid mx-auto" alt="githun-octodex-banner-image">
+            <img src="https://img.maocdn.cn/img/2021/09/09/tentocats.jpg" class="featurette-image img-fluid mx-auto" alt="githun-octodex-banner-image">
         </div>
     </div>
 </div>
