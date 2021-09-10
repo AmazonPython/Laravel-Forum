@@ -71,6 +71,8 @@ return [
     'threads_create_success' => 'Your thread has been successfully published!',
 
     'threads_delete' => 'Delete',
+    'threads_delete_thread_success' => 'The thread has been deleted successfully!',
+    'threads_delete_reply_success' => 'The reply has been deleted successfully!',
 
     'home_title' => '\'s personal home page',
     'home_welcome_back' => 'welcome back, ',

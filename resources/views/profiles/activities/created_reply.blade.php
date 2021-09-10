@@ -4,6 +4,15 @@
         <b>{{ $profileUser->name }} </b>@lang('messages.threads_replied')
         <a href="{{ $activity->subject->thread->path() }}" style="text-decoration: none;">
             <b> "{{ $activity->subject->thread->title }}"</b>
+            @can('update', $activity->subject)
+                <form action="{{ url('replies', $activity->subject->id) }}" method="post" class="float-right">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">
+                        @lang('messages.threads_delete')
+                    </button>
+                </form>
+            @endcan
         </a><br /><br />
     @endslot
 

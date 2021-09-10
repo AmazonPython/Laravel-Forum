@@ -78,6 +78,6 @@ class ThreadController extends Controller
             return response([], 204);
         }
 
-        return redirect('/threads');
+        return redirect('/threads')->with('flash', trans('messages.threads_delete_thread_success'));
     }
 }

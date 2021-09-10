@@ -11,7 +11,7 @@
                     <button type="submit" class="btn btn-danger">
                         @lang('messages.threads_delete')
                     </button>
-                </form><hr>
+                </form>
             @endcan
         </a><br /><br />
     @endslot

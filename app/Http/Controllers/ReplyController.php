@@ -34,4 +34,13 @@ class ReplyController extends Controller
             return redirect()->back()->with('flash', trans('messages.threads_reply_success'));
         }
     }
+
+    public function destroy(Reply $reply)
+    {
+        $this->authorize('update', $reply);
+
+        $reply->delete();
+
+        return back()->with('flash', trans('messages.threads_delete_reply_success'));
+    }
 }

@@ -71,6 +71,8 @@ return [
     'threads_create_success' => '您的帖子已成功发布！',
 
     'threads_delete' => '删除',
+    'threads_delete_thread_success' => '删除帖子成功！',
+    'threads_delete_reply_success' => '删除回复成功！',
 
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来，',
