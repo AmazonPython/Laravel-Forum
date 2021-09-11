@@ -5,9 +5,6 @@
         <a href="{{ $activity->subject->favorited->path() }}" style="text-decoration: none;">
             <b>"{{ $activity->subject->favorited->owner->name }}@lang('messages.profiles_favorited_reply_activity')"</b>
         </a><br /><br />
-    @endslot
-
-    @slot('body')
         <p class="lead">{!! $activity->subject->favorited->body !!}</p><hr>
     @endslot
 @endcomponent

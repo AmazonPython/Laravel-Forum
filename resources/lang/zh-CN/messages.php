@@ -74,6 +74,10 @@ return [
     'threads_delete_thread_success' => '删除帖子成功！',
     'threads_delete_reply_success' => '删除回复成功！',
 
+    'threads_edit' => '编辑',
+    'threads_update' => '保存',
+    'threads_update_cancel' => '取消保存',
+
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来，',
 

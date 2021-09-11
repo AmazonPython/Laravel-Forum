@@ -35,6 +35,15 @@ class ReplyController extends Controller
         }
     }
 
+    public function update(Reply $reply)
+    {
+        $this->authorize('update', $reply);
+
+        $this->validate(request(), ['body' => 'required|min:3']);
+
+        $reply->update(request(['body']));
+    }
+
     public function destroy(Reply $reply)
     {
         $this->authorize('update', $reply);
