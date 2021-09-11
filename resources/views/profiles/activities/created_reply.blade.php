@@ -5,6 +5,9 @@
         <a href="{{ $activity->subject->thread->path() }}" style="text-decoration: none;">
             <b> "{{ $activity->subject->thread->title }}"</b>
             @can('update', $activity->subject)
+                <button type="submit" class="btn btn-info float-right ml-4">
+                    修改
+                </button>
                 <form action="{{ url('replies', $activity->subject->id) }}" method="post" class="float-right">
                     @csrf
                     @method('DELETE')

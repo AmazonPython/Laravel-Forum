@@ -1,9 +1,8 @@
 <div class="card-body">
 @auth
-
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/tinymce@5.9.2/tinymce.min.js"></script>
-    <script src="{{ asset('tinymce4x_languages/langs/zh_CN.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/tinymce4x_languages/langs/zh_CN.js"></script>
     <script>
         tinymce.init({
             selector: 'textarea#editor',

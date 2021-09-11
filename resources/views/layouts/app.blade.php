@@ -15,10 +15,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('favicon.ico') }}" sizes="48x48" rel="icon">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/js/app.js" defer></script>
 </head>
 <body>
     <div id="app">
