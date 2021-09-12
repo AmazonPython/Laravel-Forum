@@ -15,10 +15,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('favicon.ico') }}" sizes="48x48" rel="icon">
-    <link href="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/css/app.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/css/app.min.css" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/js/app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/js/app.min.js" defer></script>
 </head>
 <body>
     <div id="app">
@@ -31,7 +31,7 @@
             @include('partials.footer')
         </main>
     </div>
-    <!-- summernote js -->
+    <!-- tinymce editor js -->
     @section('js')@show
 </body>
 </html>
