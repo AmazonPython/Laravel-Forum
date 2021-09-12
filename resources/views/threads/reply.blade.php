@@ -19,7 +19,7 @@
         });
     </script>
 @endsection
-
+    @include('partials.errors')
     <form action="{{ url($thread->path() . '/replies') }}" method="post">
         @csrf
         <div class="form-group">
@@ -34,15 +34,17 @@
     @foreach ($replies as $reply)
         <br />
         <div class="card-header">
-            <a href="{{ route('profile', $reply->owner) }}" id="{{$thread->path()}}#reply-{{$reply->owner->name}}" style="text-decoration: none;"><b>{{ $reply->owner->name }}</b> </a>
-            <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b>
-                <form action="/replies/{{ $reply->id }}}/favorites" method="post" class="float-right">
-                    @csrf
-                    <button type="submit" class="btn btn-primary" {{ $reply->isFavorited() ? 'disabled' : '' }} title="@lang('messages.threads_reply_favorite')">
-                        {{ $reply->favorites()->count() }} ❤️
-                    </button>
-                </form><br />
-            </a><br />
+            <reply :attributes="{{ $reply }}" inline-template v-cloak>
+                <div id="reply-favorite-{{ $reply->id }}" class="panel panel-default">
+                    <a href="{{ route('profile', $reply->owner) }}" id="{{ $thread->path() }}#reply-{{ $reply->owner->name }}" style="text-decoration: none;">
+                        <b>{{ $reply->owner->name }}</b>
+                    </a>
+                    <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b></a>
+                    <a class="float-right" title="@lang('messages.threads_reply_favorite')">
+                        <favorite :reply="{{ $reply }}">️</favorite>
+                    </a><br /><br />
+                </div>
+            </reply>
         </div>
         <div class="card-header">{!! $reply->body !!}</div>
     @endforeach

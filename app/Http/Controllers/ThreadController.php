@@ -51,7 +51,7 @@ class ThreadController extends Controller
     {
         $this->validate(request(),[
             'title' => 'required|max:100|min:2',
-            'body' => 'required|min:3',
+            'body' => 'required|min:9',
             'channel_id' => 'required|exists:channels,id'
         ]);
 

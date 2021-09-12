@@ -1,6 +1,11 @@
 <script>
+import Favorite from './Favorite.vue';
+
 export default {
     props: ['attributes'],
+
+    components: { Favorite },
+
     data() {
         return {
             editing: false,
@@ -13,7 +18,6 @@ export default {
                 body: this.body
             });
             this.editing = false;
-            flash('Updated!');
         }
     }
 }

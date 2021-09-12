@@ -6,7 +6,7 @@
             <b> "{{ $activity->subject->thread->title }}"</b>
         </a><br /><br />
 
-        <reply :attributes="{{ $activity->subject}}" inline-template v-cloak>
+        <reply :attributes="{{ $activity->subject }}" inline-template v-cloak>
             <div id="reply-{{ $activity->subject->id }}" class="panel panel-default">
                 <div v-if="editing">
                     <div class="form-group">

@@ -18,7 +18,7 @@ class ReplyController extends Controller
     public function store(Channel $channel, $id, Request $request)
     {
         $this->validate(request(),[
-            'body' => 'required|min:3',
+            'body' => 'required|min:9',
         ]);
 
         $thread = Thread::find($id);
