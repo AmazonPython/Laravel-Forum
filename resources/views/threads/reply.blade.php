@@ -1,4 +1,3 @@
-<div class="card-body">
 @auth
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/tinymce@5.9.2/tinymce.min.js"></script>
@@ -30,36 +29,12 @@
         </div>
         <button type="submit" class="btn btn-primary">@lang('messages.threads_reply_button')</button>
     </form>
-
     @foreach ($replies as $reply)
-        <br />
-        <div class="card-header">
-            <reply :attributes="{{ $reply }}" inline-template v-cloak>
-                <div id="reply-favorite-{{ $reply->id }}" class="panel panel-default">
-                    <a href="{{ route('profile', $reply->owner) }}" id="{{ $thread->path() }}#reply-{{ $reply->owner->name }}" style="text-decoration: none;">
-                        <b>{{ $reply->owner->name }}</b>
-                    </a>
-                    <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b></a>
-                    <a class="float-right" title="@lang('messages.threads_reply_favorite')">
-                        <favorite :reply="{{ $reply }}">️</favorite>
-                    </a><br /><br />
-                </div>
-            </reply>
-        </div>
-        <div class="card-header">{!! $reply->body !!}</div>
+        @include('threads.favorite')
     @endforeach
 @else
     <a href="{{ route('login') }}" style="text-decoration: none;">@lang('messages.threads_login_to_reply')</a><hr>
-        @foreach ($thread->replies as $reply)
-            <br />
-            <div class="card-header">
-                <a><b>{{ $reply->owner->name }}</b> @lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b>
-                    <button type="submit" class="btn btn-primary float-right" title="@lang('messages.threads_reply_favorite')">
-                        {{ $reply->favorites()->count() }} @lang('messages.threads_reply_favorite')
-                    </button><br />
-                </a><br />
-            </div>
-            <div class="card-header">{!! $reply->body !!}</div>
-        @endforeach
+    @foreach ($thread->replies as $reply)
+        @include('threads.favorite')
+    @endforeach
 @endauth
-</div>
