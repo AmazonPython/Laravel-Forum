@@ -7,7 +7,9 @@
             </a>
             <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b></a>
             <a class="float-right" title="@lang('messages.threads_reply_favorite')">
-                <favorite :reply="{{ $reply }}"></favorite>
+                @if (Auth::check())
+                    <favorite :reply="{{ $reply }}"></favorite>
+               @endif
             </a><br /><br />
         </div>
     </reply>
