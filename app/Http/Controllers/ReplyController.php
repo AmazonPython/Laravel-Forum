@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Channel;
-use Auth;
 use App\Reply;
 use App\Thread;
-use Illuminate\Http\Request;
 
 class ReplyController extends Controller
 {
@@ -15,24 +13,22 @@ class ReplyController extends Controller
         $this->middleware('auth');
     }
 
-    public function store(Channel $channel, $id, Request $request)
+    public function store(Channel $channel, Thread $thread)
     {
         $this->validate(request(),[
             'body' => 'required|min:9',
         ]);
 
-        $thread = Thread::find($id);
+        $reply = $thread->addReply([
+            'body' => request('body'),
+            'user_id' => auth()->id()
+        ]);
 
-        $reply = new Reply();
-        $reply->body = $request->body;
-        $reply->thread_id = $thread->id;
-        $reply->user_id = Auth::id();
-
-        if ($reply == true){
-            $reply->save();
-
-            return redirect()->back()->with('flash', trans('messages.threads_reply_success'));
+        if (request()->expectsJson()) {
+            return $reply->load('owner');
         }
+
+        return back()->with('flash', trans('messages.threads_reply_success'));
     }
 
     public function update(Reply $reply)
