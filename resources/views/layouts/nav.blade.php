@@ -21,7 +21,7 @@
                             <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">@lang('messages.nav_my_threads')</a></li>
                         @endauth
                         <li><a href="{{ url('threads' . '?popular=1') }}" class="dropdown-item">@lang('messages.nav_popular_threads')</a></li>
-                        <li><a href="" class="dropdown-item">@lang('messages.nav_unanswered_threads')</a></li>
+                        <li><a href="{{ url('threads' . '?unanswered=1') }}" class="dropdown-item">@lang('messages.nav_unanswered_threads')</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ url('threads/create') }}" class="nav-link">@lang('messages.nav_new_thread')</a></li>
