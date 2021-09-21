@@ -20,6 +20,17 @@
                         <div class="card-header">
                             <a href="{{ route('profile', $thread->creator) }}" style="text-decoration: none;"><b>{{ $thread->creator->name }}</b> </a>
                             <a>@lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+                            @auth
+                                @if ($thread->subscribe(Auth::id())->exists())
+                                    <a href="{{ $thread->path() . '/unsubscribe' }}" type="button" class="btn btn-info float-right">
+                                        @lang('messages.threads_unsubscribe')
+                                    </a>
+                                @else
+                                    <a href="{{ $thread->path() . '/subscribe' }}" type="button" class="btn btn-primary float-right">
+                                        @lang('messages.threads_subscribe')
+                                    </a>
+                                @endif
+                            @endauth
                             <br />@lang('messages.threads_index_there_have_been')
                             <a><b>{{ $thread->visits }}</b> @lang('messages.threads_visits')</a>
                             <a><b>{{ $thread->replies_count }}</b> @lang('messages.threads_replies')</a>

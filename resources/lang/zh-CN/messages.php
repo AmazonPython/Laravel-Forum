@@ -78,6 +78,9 @@ return [
     'threads_update' => '保存',
     'threads_update_cancel' => '取消保存',
 
+    'threads_subscribe' => '订阅',
+    'threads_unsubscribe' => '取消订阅',
+
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来，',
 

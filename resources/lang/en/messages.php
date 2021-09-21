@@ -78,6 +78,9 @@ return [
     'threads_update' => 'Update',
     'threads_update_cancel' => 'Cancel',
 
+    'threads_subscribe' => 'Subscribe',
+    'threads_unsubscribe' => 'Unsubscribe',
+
     'home_title' => '\'s personal home page',
     'home_welcome_back' => 'welcome back, ',
 
