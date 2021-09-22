@@ -38352,7 +38352,7 @@ var render = function() {
     [
       _c("span", { domProps: { textContent: _vm._s(_vm.count) } }),
       _vm._v(" "),
-      _c("span", { staticClass: "glyphicon glyphicon-heart" }, [_vm._v("❤️")])
+      _c("span", [_vm._v("❤️")])
     ]
   )
 }

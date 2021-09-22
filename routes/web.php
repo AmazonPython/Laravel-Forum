@@ -38,3 +38,5 @@ Route::get('/threads/{channel}/{thread}/subscribe', 'ThreadSubscriptionsControll
 Route::get('/threads/{channel}/{thread}/unsubscribe', 'ThreadSubscriptionsController@unsubscribe');
 
 Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
+Route::get('/profiles/{user}/notifications', 'ProfileController@all');
+Route::get('/profiles/{user}/notifications/{notification}', 'ProfileController@read');

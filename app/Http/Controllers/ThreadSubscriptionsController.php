@@ -21,13 +21,13 @@ class ThreadSubscriptionsController extends Controller
 
         ThreadSubscription::firstOrCreate($param);
 
-        return back()->with('flash', trans('messages.threads_subscribe'));
+        return back()->with('flash', trans('messages.threads_subscribe_success'));
     }
 
     public function unSubscribe($channelId, Thread $thread)
     {
         $thread->subscribe(auth()->id())->delete();
 
-        return back()->with('flash', trans('messages.threads_unsubscribe'));
+        return back()->with('flash', trans('messages.threads_unsubscribe_success'));
     }
 }

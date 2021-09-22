@@ -1,7 +1,7 @@
 <template>
     <button type="submit" :class="classes" @click="toggle">
         <span v-text="count"></span>
-        <span class="glyphicon glyphicon-heart">❤️</span>
+        <span>❤️</span>
     </button>
 </template>
 

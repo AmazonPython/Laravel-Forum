@@ -58,6 +58,7 @@ return [
     'threads_reply_button' => 'Reply',
     'threads_reply_favorite' => 'favorite',
     'threads_replied' => 'replied',
+    'threads_replied_to' => ' replied to ',
     'threads_reply_success' => 'Your reply has been left.',
     'threads_login_to_reply' => 'Please click here to login to comment',
 
@@ -80,6 +81,8 @@ return [
 
     'threads_subscribe' => 'Subscribe',
     'threads_unsubscribe' => 'Unsubscribe',
+    'threads_subscribe_success' => 'Subscribe succeeded!',
+    'threads_unsubscribe_success' => 'Unsubscribe succeeded!',
 
     'home_title' => '\'s personal home page',
     'home_welcome_back' => 'welcome back, ',

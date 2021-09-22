@@ -58,6 +58,7 @@ return [
     'threads_reply_button' => '回复',
     'threads_reply_favorite' => '赞赏',
     'threads_replied' => '回复于',
+    'threads_replied_to' => ' 回复于 ',
     'threads_reply_success' => '您的回复已经留下。',
     'threads_login_to_reply' => '请点击此处登录后评论',
 
@@ -80,6 +81,8 @@ return [
 
     'threads_subscribe' => '订阅',
     'threads_unsubscribe' => '取消订阅',
+    'threads_subscribe_success' => '订阅成功！',
+    'threads_unsubscribe_success' => '取消订阅成功！',
 
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来，',
