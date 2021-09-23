@@ -54,32 +54,30 @@
                 @else
                     <!--通知栏-->
                     <li class="nav-item dropdown">
-                        <a href="{{ url('/profiles/{user}/notifications') }}" role="button" class="btn btn-default btn-sm mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a href="{{ url('/profiles/{user}/notifications') }}" class="btn btn-default btn-sm mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
                                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
                             </svg>
-                            @if(auth()->user()->notifications->count() > 99)
+                            @if(auth()->user()->unreadNotifications->count() > 99)
                                 <span class="badge badge-light">99+</span>
                             @else
-                                <span class="badge badge-light">{{ auth()->user()->notifications->count() }}</span>
+                                <span class="badge badge-light">{{ auth()->user()->unreadNotifications->count() ? auth()->user()->unreadNotifications->count() : '' }}</span>
                             @endif
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @forelse(auth()->user()->notifications as $notification)
-                                <ul class="dropdown-item">
-                                    <li>
-                                        <a class="btn" href="{{ $notification['data']['link'] }}">
-                                            {{ $notification['data']['message'] }}
-                                        </a>
-                                        <a class="btn btn-info btn-sm" href="{{ url('/profiles/' . Auth::user()->name . '/notifications/' . $notification->id) }}">
-                                            点击已读
-                                        </a>
-                                    </li>
-                                </ul>
-                            @empty
-                                <a class="dropdown-item">还没有通知(=￣ω￣=)···</a>
-                            @endforelse
+                            <div class="card-body">
+                                @forelse(auth()->user()->unreadnotifications as $notification)
+                                    <a href="{{ $notification['data']['link'] }}" style="text-decoration: none;color: #212529;">
+                                        {{ $notification['data']['message'] }}
+                                    </a>
+                                    <a class="badge badge-success float-right" href="{{ url('/profiles/' . Auth::user()->name . '/notifications/' . $notification->id) }}">
+                                        @lang('messages.threads_subscribe_notices_mark')
+                                    </a><hr>
+                                @empty
+                                    <a class="dropdown-item">@lang('messages.threads_subscribe_notices')</a>
+                                @endforelse
+                            </div>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

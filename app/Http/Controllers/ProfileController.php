@@ -27,7 +27,7 @@ class ProfileController extends Controller
 
     public function read($user, $notificationId)
     {
-        auth()->user()->notifications()->findOrFail($notificationId)->delete();
+        auth()->user()->notifications()->findOrFail($notificationId)->markAsRead();
 
         return redirect()->back();
     }

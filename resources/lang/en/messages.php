@@ -83,6 +83,8 @@ return [
     'threads_unsubscribe' => 'Unsubscribe',
     'threads_subscribe_success' => 'Subscribe succeeded!',
     'threads_unsubscribe_success' => 'Unsubscribe succeeded!',
+    'threads_subscribe_notices' => 'There is no notification at present',
+    'threads_subscribe_notices_mark' => 'Mark as read',
 
     'home_title' => '\'s personal home page',
     'home_welcome_back' => 'welcome back, ',

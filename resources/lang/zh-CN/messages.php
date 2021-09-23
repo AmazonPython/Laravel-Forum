@@ -83,6 +83,8 @@ return [
     'threads_unsubscribe' => '取消订阅',
     'threads_subscribe_success' => '订阅成功！',
     'threads_unsubscribe_success' => '取消订阅成功！',
+    'threads_subscribe_notices' => '目前尚无通知',
+    'threads_subscribe_notices_mark' => '标为已读',
 
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来，',
