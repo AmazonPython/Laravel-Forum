@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
     <div class="py-5 text-center">
-        <p align="center"><img src="{{ asset('images/logo-laravel.svg') }}"></p>
+        <p align="center"><img src="{{ asset('images/logo-laravel.svg') }}" alt="Laravel logo"></p>
     </div>
 
     <div class="row featurette">
