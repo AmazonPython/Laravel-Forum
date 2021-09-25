@@ -17,14 +17,8 @@
                 </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
                     <h2>@lang('messages.home_welcome_back'){{ $profileUser->name }}</h2><br /><hr>
-
-                    @forelse ($activities as $date => $activity)
+                    @forelse ($activities as $date => $activity)<br />
                         <h3 class="page-header">{{ $date }}</h3>
                         @foreach ($activity as $record)
                             @if (view()->exists("profiles.activities.{$record->type}"))

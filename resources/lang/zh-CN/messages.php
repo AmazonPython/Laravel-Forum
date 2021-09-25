@@ -87,7 +87,7 @@ return [
     'threads_subscribe_notices_mark' => '标为已读',
 
     'home_title' => '的个人中心',
-    'home_welcome_back' => '欢迎回来，',
+    'home_welcome_back' => '欢迎回来！',
 
     'profiles_title' => '个人简介',
     'profiles_joined' => '加入于',

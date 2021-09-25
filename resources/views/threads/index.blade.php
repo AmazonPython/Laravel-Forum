@@ -17,14 +17,15 @@
                     @forelse ($threads as $thread)
                         <h3 class="text-center">
                             <a href="{{ url($thread->path()) }}" style="text-decoration: none;">
-                                {{-- $thread->title --}}
-                                @if (auth()->check() && $thread->hasUpdatesFor(auth()->user()))
-                                    <strong>
-                                        {{ $thread->title }}
-                                    </strong>
-                                @else
+                                @guest
                                     {{ $thread->title }}
-                                @endif
+                                @else
+                                    @if ($thread->hasUpdatesFor(auth()->user()))
+                                        <strong>{{ $thread->title }}</strong>
+                                    @else
+                                        {{ $thread->title }}
+                                    @endif
+                                @endguest
                             </a>
                         </h3>
                         <div class="card-header">

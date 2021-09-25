@@ -87,7 +87,7 @@ return [
     'threads_subscribe_notices_mark' => 'Mark as read',
 
     'home_title' => '\'s personal home page',
-    'home_welcome_back' => 'welcome back, ',
+    'home_welcome_back' => 'Welcome back! ',
 
     'profiles_title' => 'User Profile',
     'profiles_joined' => 'Joined',
