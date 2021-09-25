@@ -16,7 +16,16 @@
                 <div class="card-body">
                     @forelse ($threads as $thread)
                         <h3 class="text-center">
-                            <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
+                            <a href="{{ url($thread->path()) }}" style="text-decoration: none;">
+                                {{-- $thread->title --}}
+                                @if (auth()->check() && $thread->hasUpdatesFor(auth()->user()))
+                                    <strong>
+                                        {{ $thread->title }}
+                                    </strong>
+                                @else
+                                    {{ $thread->title }}
+                                @endif
+                            </a>
                         </h3>
                         <div class="card-header">
                             <a href="{{ route('profile', $thread->creator) }}" style="text-decoration: none;"><b>{{ $thread->creator->name }}</b> </a>
