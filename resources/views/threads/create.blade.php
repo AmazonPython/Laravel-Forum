@@ -49,7 +49,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input name="title" type="text" class="form-control" placeholder="@lang('messages.threads_title')" value="{{ old('title') }}" required>
+                            <input name="title" type="text" class="form-control" minlength="2" maxlength="100" placeholder="@lang('messages.threads_title')" value="{{ old('title') }}" required>
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" name="body" id="editor">{{ old('body') }}</textarea>

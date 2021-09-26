@@ -107,10 +107,10 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @switch($locale)
                                 @case('en')
-                                <img src="{{ asset('images/en.png') }}" width="30px" height="20x"> English
+                                    <img src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/en.png" width="30px" height="20x"> English
                                 @break
                                 @default
-                                <img src="{{ asset('images/zh-CN.png') }}" width="30px" height="20x"> 中文
+                                    <img src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/zh-CN.png" width="30px" height="20x"> 中文
                             @endswitch
                             <span class="caret"></span>
                         </a>

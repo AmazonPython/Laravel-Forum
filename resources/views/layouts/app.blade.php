@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('favicon.svg') }}" sizes="48x48" rel="icon">
+    <link href="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/favicon.svg" sizes="48x48" rel="icon">
     <link href="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/css/app.min.css" rel="stylesheet">
 
     <!-- Scripts -->

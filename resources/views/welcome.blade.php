@@ -7,7 +7,21 @@
 @section('content')
 <div class="container">
     <div class="py-5 text-center">
-        <p align="center"><img src="{{ asset('images/logo-laravel.svg') }}" alt="Laravel logo"></p>
+        <p align="center">
+            <img src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/logo-laravel.svg" alt="Laravel logo">
+        </p>
+
+        <p align="center">
+            <a href="https://jsdelivr.com">
+                <img src="https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge" alt="hits/month">
+            </a>
+            <a href="https://jsdelivr.com">
+                <img src="https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge/rank" alt="rank">
+            </a>
+            <a href="https://github.com/996icu/996.ICU/blob/master/LICENSE">
+                <img src="{{ asset('images/License-Anti 996-green.svg') }}" alt="License">
+            </a>
+        </p>
     </div>
 
     <div class="row featurette">
