@@ -19,7 +19,7 @@
                 <img src="https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge/rank" alt="rank">
             </a>
             <a href="https://github.com/996icu/996.ICU/blob/master/LICENSE">
-                <img src="{{ asset('images/License-Anti 996-green.svg') }}" alt="License">
+                <img src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/License-Anti-996-green.svg" alt="License">
             </a>
         </p>
     </div>

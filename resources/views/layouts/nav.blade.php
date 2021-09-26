@@ -116,10 +116,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('lang', 'zh-CN') }}">
-                                <img src="{{ asset('images/zh-CN.png') }}" width="30px" height="20x"> 中文
+                                <img src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/zh-CN.png" width="30px" height="20x"> 中文
                             </a>
                             <a class="dropdown-item" href="{{ route('lang', 'en') }}">
-                                <img src="{{ asset('images/en.png') }}" width="30px" height="20x"> English
+                                <img src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/en.png" width="30px" height="20x"> English
                             </a>
                         </div>
                     </li>
