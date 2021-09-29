@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Channel;
 use App\Reply;
 use App\Thread;
-use App\User;
-use App\Notifications\YouWereMentioned;
-use Illuminate\Support\Facades\Notification;
 
 class ReplyController extends Controller
 {
@@ -30,14 +27,6 @@ class ReplyController extends Controller
         if (request()->expectsJson()) {
             return $reply->load('owner');
         }
-
-        preg_match_all('/\@([^\s\.]+)/', $reply->body, $matches);
-
-        $names =  $matches[1];
-
-        $users = User::whereIn('name', $names)->get();
-
-        Notification::send($users, new YouWereMentioned($reply));
 
         return back()->with('flash', trans('messages.threads_reply_success'));
     }
