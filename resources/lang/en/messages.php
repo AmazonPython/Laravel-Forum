@@ -61,6 +61,7 @@ return [
     'threads_replied_to' => ' replied to ',
     'threads_reply_success' => 'Your reply has been left.',
     'threads_login_to_reply' => 'Please click here to login to comment',
+    'threads_replied_mentioned' => ' mentioned you in ',
 
     'threads_create_title' => 'Create a New Thread',
     'threads_create_editor' => 'en_GB',

@@ -61,6 +61,7 @@ return [
     'threads_replied_to' => ' 回复于 ',
     'threads_reply_success' => '您的回复已经留下。',
     'threads_login_to_reply' => '请点击此处登录后评论',
+    'threads_replied_mentioned' => ' @了你 ',
 
     'threads_create_title' => '发布新贴',
     'threads_create_editor' => 'zh_CN',
