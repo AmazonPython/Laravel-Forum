@@ -38,6 +38,14 @@
                     </ul>
                 </li>
             </ul>
+            <form class="form-inline" id="searchInput" role="search" method="get" action="{{ route('user.search') }}">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="query" placeholder="搜索用户">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -55,9 +63,7 @@
                     <!--通知栏-->
                     <li class="nav-item dropdown">
                         <a href="{{ url('/profiles/{user}/notifications') }}" class="btn btn-default btn-sm mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                            </svg>
+                            <span><i class="fas fa-bell" style="font-size: 16px;"></i></span>
                             @if(auth()->user()->unreadNotifications->count() > 99)
                                 <span class="badge badge-light">99+</span>
                             @else

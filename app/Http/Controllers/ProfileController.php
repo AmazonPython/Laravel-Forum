@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Activity;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -30,5 +31,14 @@ class ProfileController extends Controller
         auth()->user()->notifications()->findOrFail($notificationId)->markAsRead();
 
         return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('query');
+
+        $users = User::where('name', 'LIKE', "$keyword%")->paginate(10);
+
+        return view('partials.search', compact('users'));
     }
 }

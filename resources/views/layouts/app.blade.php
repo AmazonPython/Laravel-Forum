@@ -16,9 +16,11 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/favicon.svg" sizes="48x48" rel="icon">
     <link href="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/css/app.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/js/app.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/js/fontawesome.min.js" defer></script>
 </head>
 <body>
     <div id="app">

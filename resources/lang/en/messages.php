@@ -96,4 +96,5 @@ return [
     'profiles_favorited_activity' => 'favorited',
     'profiles_favorited_reply_activity' => '\'s reply',
 
+    'search_result' => 'Search results',
 ];

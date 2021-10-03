@@ -12,7 +12,7 @@
                 <div class="card-header">
                     <a>{{ $profileUser->name }}@lang('messages.home_title')</a>
                     <a class="ml-4" style="text-decoration: none;color: #212529">
-                        @lang('messages.profiles_joined') {{ $profileUser->created_at->diffForHumans() }}
+                        @lang('messages.profiles_joined') <b>{{ $profileUser->created_at->diffForHumans() }}</b>
                     </a>
                 </div>
 

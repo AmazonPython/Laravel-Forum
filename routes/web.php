@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('lang/{locale}', 'HomeController@lang')->name('lang');
 
 Route::get('/threads', 'ThreadController@index');
@@ -40,3 +40,5 @@ Route::get('/threads/{channel}/{thread}/unsubscribe', 'ThreadSubscriptionsContro
 Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
 Route::get('/profiles/{user}/notifications', 'ProfileController@all');
 Route::get('/profiles/{user}/notifications/{notification}', 'ProfileController@read');
+
+Route::get('search', 'ProfileController@search')->name('user.search');

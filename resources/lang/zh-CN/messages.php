@@ -96,4 +96,5 @@ return [
     'profiles_favorited_activity' => '赞赏了',
     'profiles_favorited_reply_activity' => '的回复',
 
+    'search_result' => '搜索结果',
 ];
