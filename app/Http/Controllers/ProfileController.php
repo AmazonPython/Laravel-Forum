@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth')->except('show', 'search');
     }
 
     public function show(User $user)
@@ -40,5 +40,18 @@ class ProfileController extends Controller
         $users = User::where('name', 'LIKE', "$keyword%")->paginate(10);
 
         return view('partials.search', compact('users'));
+    }
+
+    public function avatar(Request $request)
+    {
+        request()->validate([
+            'avatar' => ['required', 'image']
+        ]);
+
+        auth()->user()->update([
+            'avatar' => request()->file('avatar')->store('avatars', 'public')
+        ]);
+
+        return redirect()->back();
     }
 }

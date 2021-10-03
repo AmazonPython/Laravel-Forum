@@ -63,7 +63,7 @@
                     <!--通知栏-->
                     <li class="nav-item dropdown">
                         <a href="{{ url('/profiles/{user}/notifications') }}" class="btn btn-default btn-sm mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <span><i class="fas fa-bell" style="font-size: 16px;"></i></span>
+                            <span><i class="fas fa-bell fa-lg"></i></span>
                             @if(auth()->user()->unreadNotifications->count() > 99)
                                 <span class="badge badge-light">99+</span>
                             @else
@@ -88,6 +88,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img src="{{ Auth::user()->avatar ? Auth::user()->avatar : asset('images/tentocats.jpg') }}" style="border-radius: 500px; width: 30px;" alt="Avatar">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
