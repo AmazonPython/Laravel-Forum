@@ -2,6 +2,7 @@
 @section('js')
     @include('partials.editor')
 @endsection
+
     @include('partials.errors')
     <form action="{{ url($thread->path() . '/replies') }}" method="post">
         @csrf
