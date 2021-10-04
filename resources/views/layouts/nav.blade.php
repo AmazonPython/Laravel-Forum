@@ -88,7 +88,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <img src="{{ Auth::user()->avatar ? Auth::user()->avatar : asset('images/tentocats.jpg') }}" style="border-radius: 500px; width: 30px;" alt="Avatar">
+                            <img src="{{ Auth::user()->avatar ?: asset('images/tentocats.jpg') }}" style="border-radius: 500px; width: 30px;" alt="{{ Auth::user()->name }} Avatar">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 

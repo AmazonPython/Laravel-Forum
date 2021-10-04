@@ -18,7 +18,10 @@
                         <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
                     </h3>
                     <div class="card-header">
-                        <a href="{{ route('profile', $thread->creator) }}" style="text-decoration: none;"><b>{{ $thread->creator->name }}</b> </a>
+                        <a href="{{ route('profile', $thread->creator) }}" style="text-decoration: none;">
+                            <img src="{{ $thread->creator->avatar ?: asset('images/avatar.jpeg') }}" alt="{{ $thread->creator->name }} Avatar" style="border-radius: 500px; width: 30px; height: 30px;">
+                            <b>{{ $thread->creator->name }}</b>
+                        </a>
                         <a>@lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
                         @auth
                             @if ($thread->subscribe(Auth::id())->exists())

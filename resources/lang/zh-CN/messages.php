@@ -95,6 +95,7 @@ return [
     'profiles_no_activity' => '此用户尚未执行任何活动。',
     'profiles_favorited_activity' => '赞赏了',
     'profiles_favorited_reply_activity' => '的回复',
+    'profiles_edit_avatar' => '修改头像',
 
     'search_result' => '搜索结果',
 ];

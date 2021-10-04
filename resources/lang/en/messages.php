@@ -95,6 +95,7 @@ return [
     'profiles_no_activity' => 'There is no activity for this user yet.',
     'profiles_favorited_activity' => 'favorited',
     'profiles_favorited_reply_activity' => '\'s reply',
+    'profiles_edit_avatar' => 'Edit avatar',
 
     'search_result' => 'Search results',
 ];

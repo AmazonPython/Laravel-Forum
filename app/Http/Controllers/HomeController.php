@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
+
 class HomeController extends Controller
 {
     /**

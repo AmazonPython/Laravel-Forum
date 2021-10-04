@@ -42,15 +42,18 @@ class ProfileController extends Controller
         return view('partials.search', compact('users'));
     }
 
-    public function avatar(Request $request)
+    public function avatar(Request $request, User $user)
     {
         request()->validate([
             'avatar' => ['required', 'image']
         ]);
 
-        auth()->user()->update([
-            'avatar' => request()->file('avatar')->store('avatars', 'public')
-        ]);
+        if ($request->file('avatar')) {
+            $path = $request->file('avatar')->storePublicly('avatars/' . $user->name, 'public');
+            $user->avatar = "/storage/" . $path;
+
+            $user->save();
+        }
 
         return redirect()->back();
     }

@@ -10,10 +10,22 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a>{{ $profileUser->name }}@lang('messages.home_title')</a>
+                    <a><b>{{ $profileUser->name }}</b>@lang('messages.home_title')</a>
                     <a class="ml-4" style="text-decoration: none;color: #212529">
                         @lang('messages.profiles_joined') <b>{{ $profileUser->created_at->diffForHumans() }}</b>
-                    </a>
+                    </a><br />
+                    <img src="{{ $profileUser->avatar ?: asset('images/avatar.jpeg') }}" alt="{{ $profileUser->name }} Avatar" style="border-radius: 500px; width: 200px;height: 200px">
+                    <form method="post" action="{{ url('profiles/' . $profileUser->name . '/avatar') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <input type="file" value="头像" name="avatar" style="width: 180px">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    @lang('messages.profiles_edit_avatar') <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="card-body">
