@@ -97,6 +97,7 @@ return [
     'profiles_favorited_activity' => '赞赏了',
     'profiles_favorited_reply_activity' => '的回复',
     'profiles_edit_avatar' => '修改头像',
+    'profiles_edit_avatar_success' => '头像修改成功！',
 
     'search_result' => '搜索结果',
 ];

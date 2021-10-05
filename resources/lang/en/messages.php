@@ -97,6 +97,7 @@ return [
     'profiles_favorited_activity' => 'favorited',
     'profiles_favorited_reply_activity' => '\'s reply',
     'profiles_edit_avatar' => 'Edit avatar',
+    'profiles_edit_avatar_success' => 'Avatar modified successfully!',
 
     'search_result' => 'Search results',
 ];

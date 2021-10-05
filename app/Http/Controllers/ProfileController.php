@@ -55,6 +55,6 @@ class ProfileController extends Controller
             $user->save();
         }
 
-        return redirect()->back();
+        return back()->with('flash', trans('messages.profiles_edit_avatar_success'));
     }
 }
