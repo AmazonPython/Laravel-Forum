@@ -40,6 +40,6 @@ Route::get('/threads/{channel}/{thread}/unsubscribe', 'ThreadSubscriptionsContro
 Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
 Route::get('/profiles/{user}/notifications', 'ProfileController@all');
 Route::get('/profiles/{user}/notifications/{notification}', 'ProfileController@read');
-Route::post('/profiles/{user}/avatar', 'ProfileController@avatar');
+Route::post('/profiles/{user}/avatar', 'ProfileController@avatar')->name('avatar');
 
 Route::get('search', 'ProfileController@search')->name('user.search');

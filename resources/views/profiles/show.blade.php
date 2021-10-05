@@ -15,17 +15,19 @@
                         @lang('messages.profiles_joined') <b>{{ $profileUser->created_at->diffForHumans() }}</b>
                     </a><br />
                     <img src="{{ $profileUser->avatar ?: asset('images/avatar.jpeg') }}" alt="{{ $profileUser->name }} Avatar" style="border-radius: 500px; width: 200px;height: 200px">
-                    <form method="post" action="{{ url('profiles/' . $profileUser->name . '/avatar') }}" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <input type="file" value="头像" name="avatar" style="width: 180px">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    @lang('messages.profiles_edit_avatar') <i class="fas fa-edit"></i>
-                                </button>
+                    @can('update', $profileUser)
+                        <form method="post" action="{{ route('avatar', $profileUser) }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <input type="file" value="头像" name="avatar" style="width: 180px">
+                                    <button type="submit" class="btn btn-primary btn-sm">
+                                        @lang('messages.profiles_edit_avatar') <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    @endcan
                 </div>
 
                 <div class="card-body">
