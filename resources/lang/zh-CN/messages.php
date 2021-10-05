@@ -23,6 +23,7 @@ return [
     'auth_password_confirmation' => '确认密码',
     'auth_remember_password' => '记住密码',
     'auth_forgot_password' => '忘记密码？',
+    'auth_placeholder' => '输入邮箱或用户名',
     'auth_verify' => '邮箱验证',
     'auth_verify_email_address' => '验证您的邮箱地址',
     'auth_verify_email_address_alert_success' => '已将新的验证链接发送到您的电子邮件地址。',

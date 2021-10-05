@@ -23,6 +23,7 @@ return [
     'auth_password_confirmation' => 'Password Confirmation',
     'auth_remember_password' => 'Remember Me',
     'auth_forgot_password' => 'Forgot Your Password?',
+    'auth_placeholder' => 'Enter mailbox or user name',
     'auth_verify' => 'Email verify',
     'auth_verify_email_address' => 'Verify Your Email Address',
     'auth_verify_email_address_alert_success' => 'A fresh verification link has been sent to your email address.',
