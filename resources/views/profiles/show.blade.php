@@ -14,7 +14,7 @@
                     <a class="ml-4" style="text-decoration: none;color: #212529">
                         @lang('messages.profiles_joined') <b>{{ $profileUser->created_at->diffForHumans() }}</b>
                     </a><br />
-                    <img src="{{ $profileUser->avatar ?: asset('images/avatar.jpeg') }}" alt="{{ $profileUser->name }} Avatar" style="border-radius: 500px; width: 200px;height: 200px">
+                    <img src="{{ $profileUser->avatar ?: 'https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/avatar.jpeg' }}" alt="{{ $profileUser->name }} Avatar" style="border-radius: 500px; width: 200px;height: 200px">
                     @can('update', $profileUser)
                         <form method="post" action="{{ route('avatar', $profileUser) }}" enctype="multipart/form-data">
                             @csrf

@@ -17,7 +17,8 @@
                     @foreach ($users as $user)
                         <div class="user-preview">
                             <a href="{{ route('profile', $user) }}" style="text-decoration: none;">
-                                <h3 class="user-title">{{ $user->name }}</h3>
+                                <img src="{{ $user->avatar ?: 'https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/avatar.jpeg' }}" alt="{{ $user->name }} Avatar" style="border-radius: 500px; width: 30px; height: 30px;">
+                                <b>{{ $user->name }}</b>
                             </a>
                             <p>
                                 @lang('messages.profiles_joined') <b>{{ $user->created_at->diffForHumans() }}</b>
