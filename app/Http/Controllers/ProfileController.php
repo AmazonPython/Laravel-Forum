@@ -37,7 +37,10 @@ class ProfileController extends Controller
     {
         $keyword = $request->input('query');
 
-        $users = User::where('name', 'LIKE', "$keyword%")->paginate(10);
+        $users = User::select(['id', 'name', 'avatar', 'created_at'])
+            ->where('name', 'LIKE', "$keyword%")
+            ->orderBy('id')
+            ->simplePaginate(10);
 
         return view('partials.search', compact('users'));
     }
