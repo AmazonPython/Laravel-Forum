@@ -17,7 +17,7 @@ class Activity extends Model
     public static function feed($user)
     {
         return static::where('user_id', $user->id)
-            ->latest()
+            ->latest('id')
             ->with('subject')
             ->get()
             ->groupBy(function ($activity) {

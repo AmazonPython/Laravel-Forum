@@ -3,7 +3,7 @@
     <reply :attributes="{{ $reply }}" inline-template v-cloak>
         <div id="reply-favorite-{{ $reply->id }}" class="panel panel-default">
             <a href="{{ route('profile', $reply->owner) }}" id="{{ $thread->path() }}#reply-{{ $reply->owner->name }}" style="text-decoration: none;">
-                <img src="{{ $reply->owner->avatar ?: 'https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/avatar.jpeg' }}" alt="{{ $reply->owner->name }} Avatar" style="border-radius: 500px; width: 30px; height: 30px;">
+                <img src="{{ $reply->owner->avatar ?: $reply->owner->defaultAvatar() }}" alt="{{ $reply->owner->name }} Avatar" style="border-radius: 500px; width: 30px; height: 30px;">
                 <b>{{ $reply->owner->name }}</b>
             </a>
             <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b></a>

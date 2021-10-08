@@ -72,4 +72,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Reply::class)->latest();
     }
+
+    public function defaultAvatar()
+    {
+        return  'https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/avatar.jpeg';
+    }
 }
