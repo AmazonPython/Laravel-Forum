@@ -52,6 +52,8 @@ return [
     'threads_visits' => '次浏览，',
     'threads_replies' => '条回复。',
     'threads_index_empty' => '目前尚无相关结果(=￣ω￣=)···',
+    'threads_trending' => '热门话题',
+    'threads_no_trending' => '本周尚无热门话题。',
 
     'threads_show_title' => '详情页',
     'threads_reply_placeholder' => '有什么想要说的吗？',

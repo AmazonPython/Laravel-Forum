@@ -52,6 +52,8 @@ return [
     'threads_visits' => 'visits,',
     'threads_replies' => 'replies.',
     'threads_index_empty' => 'There are no relevant results at this time(=￣ω￣=)...',
+    'threads_trending' => 'Trending threads',
+    'threads_no_trending' => 'There is no trending threads for this week yet.',
 
     'threads_show_title' => 'Detail page',
     'threads_reply_placeholder' => 'Is there anything you want to say?',
