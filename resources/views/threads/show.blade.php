@@ -35,7 +35,7 @@
                             @endif
                         @endauth
                         <br />@lang('messages.threads_index_there_have_been')
-                        <a><b>{{ $thread->visits()->count() }}</b> @lang('messages.threads_visits')</a>
+                        <a><b>{{ $thread->visits }}</b> @lang('messages.threads_visits')</a>
                         <a><b>{{ $thread->replies_count }}</b> @lang('messages.threads_replies')</a>
                     </div>
 
