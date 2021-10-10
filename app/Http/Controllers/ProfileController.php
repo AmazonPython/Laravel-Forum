@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('show', 'search');
+        $this->middleware(['auth', 'verified'])->except('show', 'search');
     }
 
     public function show(User $user)
