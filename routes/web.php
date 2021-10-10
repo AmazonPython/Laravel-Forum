@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('lang/{locale}', 'HomeController@lang')->name('lang');
 
 Route::get('/threads', 'ThreadController@index');
