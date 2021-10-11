@@ -48,4 +48,13 @@ class ReplyController extends Controller
 
         return back()->with('flash', trans('messages.threads_delete_reply_success'));
     }
+
+    public function bestReply(Reply $reply)
+    {
+        $this->authorize('update', $reply->thread);
+
+        $reply->thread->markBestReply($reply);
+
+        return back();
+    }
 }

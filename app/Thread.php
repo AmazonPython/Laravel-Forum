@@ -96,4 +96,9 @@ class Thread extends Model
 
         return $this->updated_at > cache($key);
     }
+
+    public function markBestReply(Reply $reply)
+    {
+        $this->update(['best_reply_id' => $reply->id]);
+    }
 }

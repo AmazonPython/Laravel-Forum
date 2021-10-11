@@ -29,6 +29,7 @@ Route::delete('/threads/{channel}/{thread}', 'ThreadController@destroy');
 Route::middleware('throttle:10')->post('/threads/{channel}/{thread}/replies', 'ReplyController@store');
 Route::patch('/replies/{reply}', 'ReplyController@update');
 Route::delete('/replies/{reply}', 'ReplyController@destroy');
+Route::post('/replies/{reply}/best', 'ReplyController@bestReply')->name('bestReply');
 
 Route::post('/replies/{reply}/favorites', 'FavoriteController@store');
 Route::delete('/replies/{reply}/favorites', 'FavoriteController@destroy');

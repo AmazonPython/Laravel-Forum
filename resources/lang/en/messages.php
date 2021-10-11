@@ -60,6 +60,8 @@ return [
     'threads_reply_favorite' => 'favorite',
     'threads_replied' => 'replied',
     'threads_replied_to' => ' replied to ',
+    'threads_set_as_best_reply' => 'Set as best',
+    'threads_best_reply' => 'Best reply',
     'threads_reply_success' => 'Your reply has been left.',
     'threads_login_to_reply' => 'Please click here to login to comment',
     'threads_replied_mentioned' => ' mentioned you in ',
