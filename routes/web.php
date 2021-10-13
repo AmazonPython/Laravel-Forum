@@ -17,29 +17,42 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+// 语言切换
 Route::get('lang/{locale}', 'HomeController@lang')->name('lang');
 
-Route::get('/threads', 'ThreadController@index');
-Route::middleware('throttle:3')->post('/threads', 'ThreadController@store');
-Route::get('/threads/create', 'ThreadController@create');
-Route::get('/threads/{channel}', 'ThreadController@index');
-Route::get('/threads/{channel}/{thread}', 'ThreadController@show');
-Route::delete('/threads/{channel}/{thread}', 'ThreadController@destroy');
+Route::group(['prefix' => 'threads'], function (){
+    // 帖子相关
+    Route::get('/', 'ThreadController@index');
+    Route::middleware('throttle:3')->post('/', 'ThreadController@store');
+    Route::get('/create', 'ThreadController@create');
+    Route::get('/{channel}', 'ThreadController@index');
+    Route::get('/{channel}/{thread}', 'ThreadController@show');
+    Route::delete('/{channel}/{thread}', 'ThreadController@destroy');
 
-Route::middleware('throttle:10')->post('/threads/{channel}/{thread}/replies', 'ReplyController@store');
-Route::patch('/replies/{reply}', 'ReplyController@update');
-Route::delete('/replies/{reply}', 'ReplyController@destroy');
-Route::post('/replies/{reply}/best', 'ReplyController@bestReply')->name('bestReply');
+    //发表回复
+    Route::middleware('throttle:10')->post('/{channel}/{thread}/replies', 'ReplyController@store');
 
-Route::post('/replies/{reply}/favorites', 'FavoriteController@store');
-Route::delete('/replies/{reply}/favorites', 'FavoriteController@destroy');
+    // 通知
+    Route::get('/{channel}/{thread}/subscribe', 'ThreadSubscriptionsController@subscribe');
+    Route::get('/{channel}/{thread}/unsubscribe', 'ThreadSubscriptionsController@unsubscribe');
+});
 
-Route::get('/threads/{channel}/{thread}/subscribe', 'ThreadSubscriptionsController@subscribe');
-Route::get('/threads/{channel}/{thread}/unsubscribe', 'ThreadSubscriptionsController@unsubscribe');
+Route::group(['prefix' => 'replies'],function (){
+    // 回复更新、删除与点赞
+    Route::patch('/{reply}', 'ReplyController@update');
+    Route::delete('/{reply}', 'ReplyController@destroy');
+    Route::post('/{reply}/best', 'ReplyController@bestReply')->name('bestReply');
+    Route::post('/{reply}/favorites', 'FavoriteController@store');
+    Route::delete('/{reply}/favorites', 'FavoriteController@destroy');
+});
 
-Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
-Route::get('/profiles/{user}/notifications', 'ProfileController@all');
-Route::get('/profiles/{user}/notifications/{notification}', 'ProfileController@read');
-Route::post('/profiles/{user}/avatar', 'ProfileController@avatar')->name('avatar');
+Route::group(['prefix' => 'profiles'], function (){
+    // 用户页
+    Route::get('/{user}', 'ProfileController@show')->name('profile');
+    Route::get('/{user}/notifications', 'ProfileController@all');
+    Route::get('/{user}/notifications/{notification}', 'ProfileController@read');
+    Route::post('/{user}/avatar', 'ProfileController@avatar')->name('avatar');
+});
 
+// 用户搜索
 Route::get('search', 'ProfileController@search')->name('user.search');
