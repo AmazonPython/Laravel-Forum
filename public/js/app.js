@@ -1925,7 +1925,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     classes: function classes() {
-      return ['btn', this.active ? 'btn-primary' : 'btn-info'];
+      return ['btn', this.active ? 'btn-sm btn-primary' : 'btn-sm btn-info'];
     },
     endpoint: function endpoint() {
       return '/replies/' + this.reply.id + '/favorites';

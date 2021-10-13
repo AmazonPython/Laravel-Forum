@@ -18,7 +18,7 @@ export default {
         classes() {
             return [
                 'btn',
-                this.active ? 'btn-primary' : 'btn-info'
+                this.active ? 'btn-sm btn-primary' : 'btn-sm btn-info'
             ];
         },
         endpoint() {

@@ -16,7 +16,7 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('threads') }}" class="dropdown-item">@lang('messages.nav_all_threads')</a></li>
+                        <li><a href="{{ url('/threads') }}" class="dropdown-item">@lang('messages.nav_all_threads')</a></li>
                         @auth
                             <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">@lang('messages.nav_my_threads')</a></li>
                         @endauth

@@ -10,8 +10,8 @@
                 <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b></a>
 
                 @if($reply->id == $thread->best_reply_id)
-                    <button class="btn  btn-outline-info float-right ml-2">
-                        <i class="fas fa-vote-yea">  @lang('messages.threads_best_reply')</i>
+                    <button class="btn btn-sm btn-outline-info float-right ml-2">
+                        @lang('messages.threads_best_reply')
                     </button>
                 @endif
             @else
@@ -24,8 +24,8 @@
                 @can('update', $thread->creator)
                     <form method="post" action="{{ route('bestReply', $reply) }}" class="float-right ml-2">
                         @csrf
-                        <button class="btn  btn-outline-info">
-                            <i class="fas fa-vote-yea"> @lang('messages.threads_set_as_best_reply')</i>
+                        <button class="btn btn-sm btn-outline-info float-right ml-2">
+                            @lang('messages.threads_set_as_best_reply')
                         </button>
                     </form>
                 @endcan
