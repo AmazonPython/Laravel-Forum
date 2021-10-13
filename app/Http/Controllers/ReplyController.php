@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Channel;
 use App\Reply;
 use App\Thread;
+use Illuminate\Support\Facades\Response;
 
 class ReplyController extends Controller
 {
@@ -26,6 +27,10 @@ class ReplyController extends Controller
 
         if (request()->expectsJson()) {
             return $reply->load('owner');
+        }
+
+        if ($thread->locked) {
+            return response('Thread is locked', 403);
         }
 
         return back()->with('flash', trans('messages.threads_reply_success'));
