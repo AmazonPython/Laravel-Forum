@@ -6,17 +6,8 @@ use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth')->except('lang');
-    }
-
-    public function lang($locale)
+    // invoke方法适合只处理一个动作的控制器
+    public function __invoke($locale)
     {
         App::setLocale($locale);
         session()->put('locale', $locale);

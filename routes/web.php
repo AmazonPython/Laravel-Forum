@@ -11,6 +11,7 @@
 |
 */
 
+// 首页
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,7 +19,7 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 // 语言切换
-Route::get('lang/{locale}', 'HomeController@lang')->name('lang');
+Route::get('lang/{locale}', 'HomeController')->name('lang');
 
 Route::group(['prefix' => 'threads'], function (){
     // 帖子相关
@@ -29,7 +30,7 @@ Route::group(['prefix' => 'threads'], function (){
     Route::get('/{channel}/{thread}', 'ThreadController@show');
     Route::delete('/{channel}/{thread}', 'ThreadController@destroy');
 
-    //发表回复
+    // 发表回复
     Route::middleware('throttle:10')->post('/{channel}/{thread}/replies', 'ReplyController@store');
 
     // 通知
