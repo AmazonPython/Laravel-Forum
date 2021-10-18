@@ -38,6 +38,9 @@ Route::group(['prefix' => 'threads'], function (){
     Route::get('/{channel}/{thread}/unsubscribe', 'ThreadSubscriptionsController@unsubscribe');
 });
 
+Route::post('/locked/{thread}', 'ThreadController@lock')->name('locked-threads')->middleware('admin');
+
+
 Route::group(['prefix' => 'replies'],function (){
     // 回复更新、删除与点赞
     Route::patch('/{reply}', 'ReplyController@update');

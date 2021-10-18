@@ -92,6 +92,8 @@ return [
     'threads_subscribe_notices' => '目前尚无通知',
     'threads_subscribe_notices_mark' => '标为已读',
 
+    'threads_locked_thread_permission' => '您无权执行此操作。',
+
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来！',
 
