@@ -30,7 +30,7 @@ class ReplyController extends Controller
         }
 
         if ($thread->locked) {
-            return response('Thread is locked', 403);
+            abort(403, 'Thread is locked!');
         }
 
         return back()->with('flash', trans('messages.threads_reply_success'));

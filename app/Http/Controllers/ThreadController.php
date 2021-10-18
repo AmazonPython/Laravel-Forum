@@ -84,4 +84,9 @@ class ThreadController extends Controller
 
         return redirect('/threads')->with('flash', trans('messages.threads_delete_thread_success'));
     }
+
+    public function lock(Thread $thread)
+    {
+        $thread->lock();
+    }
 }

@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" style="color: #e27575;">
-                    <h3>@lang('messages.threads_show_title')</h3>
+                    <h3>@lang('messages.threads_show_title')</h3><form action="{{ url('locked',$thread) }}" method="post">@csrf<button>lock</button></form>
                 </div>
 
                 <div class="card-body">

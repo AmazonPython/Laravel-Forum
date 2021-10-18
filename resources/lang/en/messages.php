@@ -90,6 +90,8 @@ return [
     'threads_subscribe_notices' => 'There is no notification at present',
     'threads_subscribe_notices_mark' => 'Mark as read',
 
+    'threads_locked_thread_permission' => 'You do not have permission to perform this action.',
+
     'home_title' => '\'s personal home page',
     'home_welcome_back' => 'Welcome back! ',
 
