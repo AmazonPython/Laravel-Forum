@@ -93,6 +93,8 @@ return [
     'threads_subscribe_notices_mark' => '标为已读',
 
     'threads_locked_thread_permission' => '您无权执行此操作。',
+    'threads_locked_success' => '帖子锁定成功！',
+    'threads_unlocked_success' => '帖子解锁成功！',
 
     'home_title' => '的个人中心',
     'home_welcome_back' => '欢迎回来！',

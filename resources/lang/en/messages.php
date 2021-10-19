@@ -93,6 +93,8 @@ return [
     'threads_subscribe_notices_mark' => 'Mark as read',
 
     'threads_locked_thread_permission' => 'You do not have permission to perform this action.',
+    'threads_locked_success' => 'The thread has been locked successfully!',
+    'threads_unlocked_success' => 'The thread has been unlocked successfully!',
 
     'home_title' => '\'s personal home page',
     'home_welcome_back' => 'Welcome back! ',

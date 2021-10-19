@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" style="color: #e27575;">
-                    <h3>@lang('messages.threads_show_title')</h3><form action="{{ url('locked',$thread) }}" method="post">@csrf<button>lock</button></form>
+                    <h3>@lang('messages.threads_show_title')</h3>
                 </div>
 
                 <div class="card-body">
@@ -24,12 +24,24 @@
                         </a>
                         <a>@lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
                         @auth
+                            @if($thread->locked == true)
+                                <form action="{{ url('unlocked',$thread) }}" method="post">
+                                    @csrf
+                                    <button class="btn btn-outline-primary float-right ml-2">解锁</button>
+                                </form>
+                            @else
+                                <form action="{{ url('locked',$thread) }}" method="post">
+                                    @csrf
+                                    <button class="btn btn-outline-info float-right ml-2">锁定</button>
+                                </form>
+                            @endif
+
                             @if ($thread->subscribe(Auth::id())->exists())
-                                <a href="{{ $thread->path() . '/unsubscribe' }}" type="button" class="btn btn-info float-right">
+                                <a href="{{ $thread->path() . '/unsubscribe' }}" type="button" class="btn btn-outline-primary float-right">
                                     @lang('messages.threads_unsubscribe')
                                 </a>
                             @else
-                                <a href="{{ $thread->path() . '/subscribe' }}" type="button" class="btn btn-primary float-right">
+                                <a href="{{ $thread->path() . '/subscribe' }}" type="button" class="btn btn-outline-info float-right">
                                     @lang('messages.threads_subscribe')
                                 </a>
                             @endif
