@@ -87,6 +87,15 @@ class ThreadController extends Controller
 
     public function lock(Thread $thread)
     {
-        $thread->lock();
+        $thread->update(['locked' => true]);
+
+        return back()->with('flash', trans('messages.threads_locked_success'));
+    }
+
+    public function unlock(Thread $thread)
+    {
+        $thread->update(['locked' => false]);
+
+        return back()->with('flash', trans('messages.threads_unlocked_success'));
     }
 }
