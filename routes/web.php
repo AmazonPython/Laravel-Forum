@@ -16,6 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// 登录注册及用户验证
 Auth::routes(['verify' => true]);
 
 // 语言切换
@@ -38,11 +39,11 @@ Route::group(['prefix' => 'threads'], function (){
     Route::get('/{channel}/{thread}/unsubscribe', 'ThreadSubscriptionsController@unsubscribe');
 });
 
-// 锁帖
+// 锁帖与解锁
 Route::post('/locked/{thread}', 'ThreadController@lock')->middleware('admin');
 Route::post('/unlocked/{thread}', 'ThreadController@unlock')->middleware('admin');
 
-Route::group(['prefix' => 'replies'],function (){
+Route::group(['prefix' => 'replies'], function (){
     // 回复更新、删除与点赞
     Route::patch('/{reply}', 'ReplyController@update');
     Route::delete('/{reply}', 'ReplyController@destroy');
