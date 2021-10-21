@@ -21,6 +21,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/js/app.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/js/fontawesome.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.js" type="module" integrity="sha256-DdSiNPR71ROAVMqT6NiHagLAtZv9EHeByYuVxygZM5g="></script>
 </head>
 <body>
     <div id="app">
