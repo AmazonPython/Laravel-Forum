@@ -20,20 +20,20 @@ class ReplyController extends Controller
             'body' => 'required|min:3',
         ]);
 
-        $reply = $thread->addReply([
-            'body' => request('body'),
-            'user_id' => auth()->id()
-        ]);
-
-        if (request()->expectsJson()) {
-            return $reply->load('owner');
-        }
-
         if ($thread->locked) {
             abort(403, 'Thread is locked!');
-        }
+        }else{
+            $reply = $thread->addReply([
+                'body' => request('body'),
+                'user_id' => auth()->id()
+            ]);
 
-        return back()->with('flash', trans('messages.threads_reply_success'));
+            if (request()->expectsJson()) {
+                return $reply->load('owner');
+            }
+
+            return back()->with('flash', trans('messages.threads_reply_success'));
+        }
     }
 
     public function update(Reply $reply)
