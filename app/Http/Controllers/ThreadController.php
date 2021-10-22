@@ -19,18 +19,22 @@ class ThreadController extends Controller
     {
         $threads = $this->getThreads($channel, $filters);
 
+        if (\request()->wantsJson()) {
+            return $threads;
+        }
+
         return view('threads.index', compact('threads'));
     }
 
     protected function getThreads(Channel $channel, ThreadFilters $filters)
     {
-        $threads = Thread::with('channel')->latest('id')->filter($filters);
+        $threads = Thread::filter($filters);
 
         if ($channel->exists){
             $threads->where('channel_id', $channel->id);
         }
 
-        return $threads->paginate(10);
+        return $threads->latest('id')->paginate(10);
     }
 
     public function show($channel, Thread $thread)
