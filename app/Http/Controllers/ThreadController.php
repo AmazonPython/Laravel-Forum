@@ -20,7 +20,6 @@ class ThreadController extends Controller
     {
         $threads = $this->getThreads($channel, $filters);
 
-        //if (\request()->wantsJson()) return $threads;
         if (\request()->wantsJson()) {
             return $threads;
         }
@@ -39,7 +38,7 @@ class ThreadController extends Controller
             $threads->where('channel_id', $channel->id);
         }
 
-        return $threads->paginate(10);
+        return $threads->latest('id')->paginate(10);
     }
 
     public function show($channel, Thread $thread, Trending $trending)
