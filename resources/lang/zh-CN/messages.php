@@ -106,4 +106,5 @@ return [
     'profiles_edit_avatar_success' => '头像修改成功！',
 
     'search_result' => '搜索结果',
+    'recaptcha' => 'reCAPTCHA验证失败，再试一次。',
 ];
