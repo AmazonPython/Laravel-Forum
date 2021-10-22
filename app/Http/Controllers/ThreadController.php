@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use App\Thread;
 use App\Channel;
 use App\Trending;
-use Zttp\Zttp;
+use App\Rules\Recaptcha;
 use Illuminate\Http\Request;
 use App\Filters\ThreadFilters;
-use Illuminate\Support\Facades\Redis;
 
 class ThreadController extends Controller
 {
@@ -21,7 +20,10 @@ class ThreadController extends Controller
     {
         $threads = $this->getThreads($channel, $filters);
 
-        if (\request()->wantsJson()) return $threads;
+        //if (\request()->wantsJson()) return $threads;
+        if (\request()->wantsJson()) {
+            return $threads;
+        }
 
         return view('threads.index', [
             'threads' => $threads,
@@ -31,7 +33,7 @@ class ThreadController extends Controller
 
     protected function getThreads(Channel $channel, ThreadFilters $filters)
     {
-        $threads = Thread::with('channel')->latest('id')->filter($filters);
+        $threads = Thread::filter($filters);
 
         if ($channel->exists){
             $threads->where('channel_id', $channel->id);
@@ -62,30 +64,21 @@ class ThreadController extends Controller
         return view('threads.create', compact('channels'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Recaptcha $recaptcha)
     {
-        $this->validate(request(),[
+        $request->validate([
             'title' => 'required|max:100|min:2',
             'body' => 'required|min:9',
-            'channel_id' => 'required|exists:channels,id'
+            'channel_id' => 'required|exists:channels,id',
+            'g-recaptcha-response' => $recaptcha,
         ]);
 
-        $thread = $request->user()->threads()->create([
-            'title' => request('title'),
-            'body' => request('body'),
-            'channel_id' => request('channel_id'),
+        $thread = Thread::create([
+            'user_id' => auth()->id(),
+            'channel_id' => $request->channel_id,
+            'title' => $request->title,
+            'body' => $request->body,
         ]);
-
-        // 中国大陆地区无法连接到谷歌服务的代替方案 原网址 https://www.google.com/recaptcha/api/siteverify
-        $response = Zttp::asFormParams()->post('https://recaptcha.net/recaptcha/api/siteverify', [
-            'secret' => config('services.recaptcha.secret'),
-            'response' => $request->input('g-recaptcha-response'),
-            'remoteip' => request()->ip()
-        ]);
-
-        if (! $response->json()['success']) {
-            throw new \Exception('Recaptcha failed');
-        }
 
         if (request()->wantsJson()) {
             return response($thread, 201);

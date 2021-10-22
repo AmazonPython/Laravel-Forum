@@ -108,4 +108,5 @@ return [
     'profiles_edit_avatar_success' => 'Avatar modified successfully!',
 
     'search_result' => 'Search results',
+    'recaptcha' => 'The recaptcha verification failed. Try again.'
 ];
