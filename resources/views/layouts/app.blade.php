@@ -34,7 +34,7 @@
             @include('partials.footer')
         </main>
     </div>
-    <!-- tinymce editor js -->
+    <!-- tinymce editor js & google recaptcha api.js -->
     @section('js')@show
 </body>
 </html>
