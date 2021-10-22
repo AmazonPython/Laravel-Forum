@@ -30,6 +30,7 @@ Route::group(['prefix' => 'threads'], function (){
     Route::get('/{channel}', 'ThreadController@index');
     Route::get('/{channel}/{thread}', 'ThreadController@show');
     Route::delete('/{channel}/{thread}', 'ThreadController@destroy');
+    Route::patch('/{channel}/{thread}', 'ThreadController@update');
 
     // 发表回复
     Route::middleware('throttle:10')->post('/{channel}/{thread}/replies', 'ReplyController@store');
