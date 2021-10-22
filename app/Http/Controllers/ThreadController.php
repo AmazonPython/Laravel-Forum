@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Thread;
 use App\Channel;
 use App\Trending;
+use Zttp\Zttp;
 use Illuminate\Http\Request;
 use App\Filters\ThreadFilters;
 use Illuminate\Support\Facades\Redis;
@@ -75,11 +76,22 @@ class ThreadController extends Controller
             'channel_id' => request('channel_id'),
         ]);
 
-        if ($thread == true){
-            $thread->save();
+        // 中国大陆地区无法连接到谷歌服务的代替方案 原网址 https://www.google.com/recaptcha/api/siteverify
+        $response = Zttp::asFormParams()->post('https://recaptcha.net/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $request->input('g-recaptcha-response'),
+            'remoteip' => request()->ip()
+        ]);
 
-            return redirect($thread->path())->with('flash', trans('messages.threads_create_success'));
+        if (! $response->json()['success']) {
+            throw new \Exception('Recaptcha failed');
         }
+
+        if (request()->wantsJson()) {
+            return response($thread, 201);
+        }
+
+        return redirect($thread->path())->with('flash', trans('messages.threads_create_success'));
     }
 
     public function update($channel, Thread $thread)
