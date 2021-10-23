@@ -24,24 +24,26 @@
                         </a>
                         <a>@lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
                         @auth
-                            @if($thread->locked == true)
-                                <form action="{{ url('unlocked',$thread) }}" method="post">
-                                    @csrf
-                                    <button class="btn btn-outline-primary float-right ml-2">解锁</button>
-                                </form>
-                            @else
-                                <form action="{{ url('locked',$thread) }}" method="post">
-                                    @csrf
-                                    <button class="btn btn-outline-info float-right ml-2">锁定</button>
-                                </form>
+                            @if(auth()->user()->isAdmin($thread->creator))
+                                @if($thread->locked == true)
+                                    <form action="{{ url('unlocked', $thread) }}" method="post">
+                                        @csrf
+                                        <button class="btn-sm btn-outline-primary float-right ml-2">解锁</button>
+                                    </form>
+                                @else
+                                    <form action="{{ url('locked', $thread) }}" method="post">
+                                        @csrf
+                                        <button class="btn-sm btn-outline-info float-right ml-2">锁定</button>
+                                    </form>
+                                @endif
                             @endif
 
                             @if ($thread->subscribe(Auth::id())->exists())
-                                <a href="{{ $thread->path() . '/unsubscribe' }}" type="button" class="btn btn-outline-primary float-right">
+                                <a href="{{ $thread->path() . '/unsubscribe' }}" type="button" class="btn-sm btn-outline-primary float-right">
                                     @lang('messages.threads_unsubscribe')
                                 </a>
                             @else
-                                <a href="{{ $thread->path() . '/subscribe' }}" type="button" class="btn btn-outline-info float-right">
+                                <a href="{{ $thread->path() . '/subscribe' }}" type="button" class="btn-sm btn-outline-info float-right">
                                     @lang('messages.threads_subscribe')
                                 </a>
                             @endif
