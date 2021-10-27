@@ -28,6 +28,7 @@ Route::group(['prefix' => 'threads'], function (){
     Route::middleware('throttle:3')->post('/', 'ThreadController@store');
     Route::get('/create', 'ThreadController@create');
     Route::get('/{channel}', 'ThreadController@index');
+    Route::get('/{channel}/{thread}/edit', 'ThreadController@edit');
     Route::get('/{channel}/{thread}', 'ThreadController@show');
     Route::delete('/{channel}/{thread}', 'ThreadController@destroy');
     Route::patch('/{channel}/{thread}', 'ThreadController@update');

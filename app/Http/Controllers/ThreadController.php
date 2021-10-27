@@ -79,6 +79,11 @@ class ThreadController extends Controller
         return redirect($thread->path())->with('flash', trans('messages.threads_create_success'));
     }
 
+    public function edit()
+    {
+        return view('profiles.activitities.edit_thread')
+    }
+
     public function update($channel, Thread $thread)
     {
         $this->authorize('update', $thread);
