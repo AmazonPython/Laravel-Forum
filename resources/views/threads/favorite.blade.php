@@ -8,9 +8,9 @@
                     <b>{{ $reply->owner->name }}</b>
                 </a>
                 <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b></a>
-
+                <br /><br />
                 @if($reply->id == $thread->best_reply_id)
-                    <button class="btn btn-sm btn-outline-info float-right ml-2">
+                    <button class="btn btn-sm btn-outline-info float-right">
                         @lang('messages.threads_best_reply')
                     </button>
                 @endif
@@ -20,22 +20,52 @@
                     <b>{{ $reply->owner->name }}</b>
                 </a>
                 <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b></a>
-
+                <br /><br />
                 @can('update', $thread->creator)
-                    <form method="post" action="{{ route('bestReply', $reply) }}" class="float-right ml-2">
+                    <form method="post" action="{{ route('bestReply', $reply) }}" class="float-left">
                         @csrf
-                        <button class="btn btn-sm btn-outline-info float-right ml-2">
+                        <button class="btn btn-sm btn-outline-info">
                             @lang('messages.threads_set_as_best_reply')
                         </button>
                     </form>
                 @endcan
             @endif
 
+
+
             <a class="float-right" title="@lang('messages.threads_reply_favorite')">
                 @if (Auth::check())
                     <favorite :reply="{{ $reply }}"></favorite>
-               @endif
+                @endif
             </a><br /><br />
+
+
+                {{--}}<div v-if="editing">
+                    <div class="form-group">
+                        <textarea id="{{ $reply->id }}" class="form-control" v-model="body"></textarea>
+                    </div>
+                    <button class="btn btn-info" @click="update">@lang('messages.threads_update')</button>
+                    <button class="btn btn-info" @click="editing = false">@lang('messages.threads_update_cancel')</button>
+                </div>
+
+                <p class="lead" v-else v-text="body"></p>--}}
+
+
+
+                @can('update', $reply->owner)
+                    <button class="btn btn-sm btn-outline-info">
+                        <a href="{{ url($thread->path() . '/edit') }}">@lang('messages.threads_edit')</a>
+                    </button>
+                    <a>
+                        <form action="{{ url($thread->path()) }}" method="post" class="float-right">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn-sm btn-danger">
+                                @lang('messages.threads_delete')
+                            </button>
+                        </form>
+                    </a><br /><br />
+                @endcan
         </div>
     </reply>
 </div>
