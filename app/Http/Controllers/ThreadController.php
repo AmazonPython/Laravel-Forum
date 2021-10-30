@@ -86,9 +86,9 @@ class ThreadController extends Controller
         return redirect($thread->path())->with('flash', trans('messages.threads_create_success'));
     }
 
-    public function edit()
+    public function edit($channel, Thread $thread)
     {
-        return view('profiles.activitities.edit_thread')
+        return view('threads.edit', compact('thread'));
     }
 
     public function update($channel, Thread $thread)
@@ -96,11 +96,12 @@ class ThreadController extends Controller
         $this->authorize('update', $thread);
 
         $thread->update(request()->validate([
+            'channel_id' => 'required',
             'title' => 'required',
             'body' => 'required'
         ]));
 
-        return $thread;
+        return redirect($thread->path())->with('flash', trans('messages.threads_edit_success'));
     }
 
     public function destroy($channel, Thread $thread)

@@ -36,6 +36,11 @@ class ReplyController extends Controller
         }
     }
 
+    public function edit(Reply $reply)
+    {
+        return view('threads.reply_edit', compact('reply'));
+    }
+
     public function update(Reply $reply)
     {
         $this->authorize('update', $reply);
@@ -43,6 +48,8 @@ class ReplyController extends Controller
         $this->validate(request(), ['body' => 'required|min:3']);
 
         $reply->update(request(['body']));
+
+        return redirect(url('threads'))->with('flash', trans('messages.threads_edit_success'));
     }
 
     public function destroy(Reply $reply)

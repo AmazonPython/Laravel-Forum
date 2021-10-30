@@ -47,6 +47,7 @@ Route::post('/unlocked/{thread}', 'ThreadController@unlock')->middleware('admin'
 
 Route::group(['prefix' => 'replies'], function (){
     // 回复更新、删除与点赞
+    Route::get('/{reply}/edit', 'ReplyController@edit');
     Route::patch('/{reply}', 'ReplyController@update');
     Route::delete('/{reply}', 'ReplyController@destroy');
     Route::post('/{reply}/best', 'ReplyController@bestReply')->name('bestReply');

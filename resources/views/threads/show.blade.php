@@ -23,6 +23,20 @@
                             <b>{{ $thread->creator->name }}</b>
                         </a>
                         <a>@lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+
+                        @can('update', $thread)
+                            <br /><br />
+                            <a href="{{ $thread->path() . '/edit' }}" class="btn btn-info float-left">@lang('messages.threads_edit')</a>
+                            <form action="{{ $thread->path() }}" method="post" class="float-right">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">
+                                    @lang('messages.threads_delete')
+                                </button>
+                            </form>
+                            <br /><hr>
+                        @endcan
+
                         @auth
                             @if(auth()->user()->isAdmin($thread->creator))
                                 @if($thread->locked == true)
