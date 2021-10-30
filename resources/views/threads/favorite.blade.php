@@ -31,41 +31,26 @@
                 @endcan
             @endif
 
-
-
             <a class="float-right" title="@lang('messages.threads_reply_favorite')">
                 @if (Auth::check())
                     <favorite :reply="{{ $reply }}"></favorite>
                 @endif
             </a><br /><br />
 
-
-                {{--}}<div v-if="editing">
-                    <div class="form-group">
-                        <textarea id="{{ $reply->id }}" class="form-control" v-model="body"></textarea>
-                    </div>
-                    <button class="btn btn-info" @click="update">@lang('messages.threads_update')</button>
-                    <button class="btn btn-info" @click="editing = false">@lang('messages.threads_update_cancel')</button>
-                </div>
-
-                <p class="lead" v-else v-text="body"></p>--}}
-
-
-
-                @can('update', $reply->owner)
-                    <button class="btn btn-sm btn-outline-info">
-                        <a href="{{ url($thread->path() . '/edit') }}">@lang('messages.threads_edit')</a>
-                    </button>
-                    <a>
-                        <form action="{{ url($thread->path()) }}" method="post" class="float-right">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn-sm btn-danger">
-                                @lang('messages.threads_delete')
-                            </button>
-                        </form>
-                    </a><br /><br />
-                @endcan
+            @can('update', $reply->owner)
+                <button class="btn btn-sm btn-outline-info">
+                    <a href="{{ url('replies/' . $reply->id . '/edit') }}">@lang('messages.threads_edit')</a>
+                </button>
+                <a>
+                    <form action="{{ url('replies/' . $reply->id) }}" method="post" class="float-right">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn-sm btn-danger">
+                            @lang('messages.threads_delete')
+                        </button>
+                    </form>
+                </a><br /><br />
+            @endcan
         </div>
     </reply>
 </div>

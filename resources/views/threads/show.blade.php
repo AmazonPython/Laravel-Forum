@@ -26,7 +26,7 @@
 
                         @can('update', $thread)
                             <br /><br />
-                            <a href="{{ $thread->path('edit') }}" class="btn btn-info float-left">@lang('messages.threads_edit')</a>
+                            <a href="{{ $thread->path() . '/edit' }}" class="btn btn-info float-left">@lang('messages.threads_edit')</a>
                             <form action="{{ $thread->path() }}" method="post" class="float-right">
                                 @csrf
                                 @method('DELETE')

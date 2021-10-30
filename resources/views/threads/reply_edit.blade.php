@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ $thread->title }} - {{ config('app.name') }}
+    @lang('messages.threads_edit') - {{ config('app.name') }}
 @endsection
 
 @section('js')
@@ -22,24 +22,11 @@
                     @include('partials.errors')
 
                     <div class="card-body">
-                        <form method="post" action="{{ url($thread->path() ) }}">
+                        <form method="post" action="{{ url('replies', $reply->id) }}">
                             @csrf
                             @method('PATCH')
                             <div class="form-group">
-                                <select name="channel_id" id="channel_id" class="form-control" required>
-                                    <option value="{{ $thread->channel->name }}">@lang('messages.threads_choose_channel')</option>
-                                    @foreach ($channels as $channel)
-                                        <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>
-                                            {{ $channel->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input name="title" type="text" class="form-control" minlength="2" maxlength="100" placeholder="@lang('messages.threads_title')" value="{{ $thread->title }}" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="body" id="editor">{{ $thread->body }}</textarea>
+                                <textarea class="form-control" name="body" id="editor">{{ $reply->body }}</textarea>
                             </div>
                             <div class="g-recaptcha" data-sitekey="6Ldz1eccAAAAAGJ89BUa_g5_yCzBAyYN3KfepiUi"></div>
                             <button type="submit" class="btn btn-primary">

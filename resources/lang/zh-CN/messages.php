@@ -80,8 +80,7 @@ return [
     'threads_delete_reply_success' => '删除回复成功！',
 
     'threads_edit' => '编辑',
-    'threads_update' => '保存',
-    'threads_update_cancel' => '取消保存',
+    'threads_edit_success' => '编辑成功！',
 
     'threads_subscribe' => '订阅',
     'threads_unsubscribe' => '取消订阅',

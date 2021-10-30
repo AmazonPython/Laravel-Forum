@@ -80,8 +80,7 @@ return [
     'threads_delete_reply_success' => 'The reply has been deleted successfully!',
 
     'threads_edit' => 'Edit',
-    'threads_update' => 'Update',
-    'threads_update_cancel' => 'Cancel',
+    'threads_edit_success' => 'Edit succeeded!',
 
     'threads_subscribe' => 'Subscribe',
     'threads_unsubscribe' => 'Unsubscribe',
