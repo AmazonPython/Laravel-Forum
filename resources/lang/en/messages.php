@@ -89,6 +89,7 @@ return [
     'threads_subscribe_notices' => 'There is no notification at present',
     'threads_subscribe_notices_mark' => 'Mark as read',
 
+    'threads_locked' => 'The thread has been locked, unable to reply.',
     'threads_locked_thread_permission' => 'You do not have permission to perform this action.',
     'threads_locked_success' => 'The thread has been locked successfully!',
     'threads_unlocked_success' => 'The thread has been unlocked successfully!',

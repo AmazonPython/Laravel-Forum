@@ -4,16 +4,21 @@
 @endsection
 
     @include('partials.errors')
-    <form action="{{ url($thread->path() . '/replies') }}" method="post">
-        @csrf
-        <div class="form-group">
-            <span class="text-muted">@lang('messages.threads_discussion')</span>
-        </div>
-        <div class="form-group">
-            <textarea class="form-control" name="body" id="editor">{{ old('body') }}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">@lang('messages.threads_reply_button')</button>
-    </form>
+    @if($thread->locked == false)
+        <form action="{{ url($thread->path() . '/replies') }}" method="post">
+            @csrf
+            <div class="form-group">
+                <span class="text-muted">@lang('messages.threads_discussion')</span>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="body" id="editor">{{ old('body') }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">@lang('messages.threads_reply_button')</button>
+        </form>
+    @else
+        <b>@lang('messages.threads_locked')</b>
+    @endif
+
     @foreach ($replies as $reply)
         @include('threads.favorite')
     @endforeach

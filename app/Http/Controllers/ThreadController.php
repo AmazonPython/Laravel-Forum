@@ -84,14 +84,15 @@ class ThreadController extends Controller
         return view('threads.edit', compact('thread'));
     }
 
-    public function update($channel, Thread $thread)
+    public function update($channel, Thread $thread, Recaptcha $recaptcha)
     {
         $this->authorize('update', $thread);
 
         $thread->update(request()->validate([
-            'channel_id' => 'required',
-            'title' => 'required',
-            'body' => 'required'
+            'title' => 'required|max:100|min:2',
+            'body' => 'required|min:9',
+            'channel_id' => 'required|exists:channels,id',
+            'g-recaptcha-response' => $recaptcha,
         ]));
 
         return redirect($thread->path())->with('flash', trans('messages.threads_edit_success'));
