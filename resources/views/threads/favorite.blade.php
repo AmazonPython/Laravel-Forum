@@ -38,18 +38,20 @@
             </a><br /><br />
 
             @can('update', $reply->owner)
-                <button class="btn btn-sm btn-outline-info">
-                    <a href="{{ url('replies/' . $reply->id . '/edit') }}">@lang('messages.threads_edit')</a>
-                </button>
-                <a>
-                    <form action="{{ url('replies/' . $reply->id) }}" method="post" class="float-right">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn-sm btn-danger">
-                            @lang('messages.threads_delete')
-                        </button>
-                    </form>
-                </a><br /><br />
+                @if($thread->locked == false)
+                    <button class="btn btn-sm btn-outline-info">
+                        <a href="{{ url('replies/' . $reply->id . '/edit') }}">@lang('messages.threads_edit')</a>
+                    </button>
+                    <a>
+                        <form action="{{ url('replies/' . $reply->id) }}" method="post" class="float-right">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn-sm btn-danger">
+                                @lang('messages.threads_delete')
+                            </button>
+                        </form>
+                    </a><br /><br />
+                @endif
             @endcan
         </div>
     </reply>

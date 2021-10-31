@@ -91,6 +91,7 @@ return [
     'threads_subscribe_notices' => '目前尚无通知',
     'threads_subscribe_notices_mark' => '标为已读',
 
+    'threads_locked' => '本帖已被锁定，无法继续回复。',
     'threads_locked_thread_permission' => '您无权执行此操作。',
     'threads_locked_success' => '帖子锁定成功！',
     'threads_unlocked_success' => '帖子解锁成功！',
