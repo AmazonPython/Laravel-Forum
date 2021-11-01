@@ -64,4 +64,4 @@ Route::group(['prefix' => 'profiles'], function (){
 });
 
 // 用户搜索
-Route::get('search', 'ProfileController@search')->name('user.search');
+Route::get('search', 'SearchController@show')->name('user.search');

@@ -40,7 +40,7 @@
             </ul>
             <form class="form-inline" id="searchInput" role="search" method="get" action="{{ route('user.search') }}">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="query" placeholder="搜索用户">
+                    <input type="text" class="form-control" name="q" placeholder="Search">
                     <button type="submit" class="btn">
                         <i class="fas fa-search"></i>
                     </button>
