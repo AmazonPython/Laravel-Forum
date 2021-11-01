@@ -11,6 +11,11 @@
             <div class="card">
                 <div class="card-header">
                     <a>@lang('messages.search_result')</a>
+                    @if($counts == true)
+                        服务器君一共找到 {{ $counts }} 条结果
+                    @else
+                        服务器君暂时没有找到结果
+                    @endif
                 </div>
 
                 <div class="card-body">
