@@ -105,6 +105,9 @@ return [
     'profiles_edit_avatar' => '修改头像',
     'profiles_edit_avatar_success' => '头像修改成功！',
 
-    'search_result' => '搜索结果',
+    'search_result_not_null' => '服务器君一共找到',
+    'search_result' => '条搜索结果。',
+    'search_result_null' => '服务器君暂时没有找到结果。',
+
     'recaptcha' => 'reCAPTCHA验证失败，再试一次。',
 ];
