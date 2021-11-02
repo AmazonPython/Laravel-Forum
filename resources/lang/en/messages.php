@@ -107,6 +107,9 @@ return [
     'profiles_edit_avatar' => 'Edit avatar',
     'profiles_edit_avatar_success' => 'Avatar modified successfully!',
 
-    'search_result' => 'Search results',
+    'search_result_not_null' => 'The server found',
+    'search_result' => 'results in total.',
+    'search_result_null' => 'The server has not found the result yet.',
+
     'recaptcha' => 'The recaptcha verification failed. Try again.'
 ];

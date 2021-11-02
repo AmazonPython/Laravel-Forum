@@ -16,7 +16,7 @@ class SearchController extends Controller
             ->orderBy('id')
             ->simplePaginate(10);
 
-        $counts = User::count();
+        $counts = User::where('name', 'LIKE', "$keyword%")->count();
 
         return view('partials.search', compact('users', 'counts'));
     }
