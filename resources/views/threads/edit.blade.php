@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <textarea class="form-control" name="body" id="editor">{{ $thread->body }}</textarea>
                             </div>
-                            <div class="g-recaptcha" data-sitekey="6Ldz1eccAAAAAGJ89BUa_g5_yCzBAyYN3KfepiUi"></div>
+                            <div class="g-recaptcha" data-sitekey="{{ env('recaptcha_key') }}"></div>
                             <button type="submit" class="btn btn-primary">
                                 @lang('messages.threads_publish_thread')
                             </button>
