@@ -4,6 +4,13 @@
     {{ $profileUser->name }} - @lang('messages.profiles_title') - {{ config('app.name') }}
 @endsection
 
+@section('background')
+    background-image: url(https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/profile-first-issue.svg);
+    background-position: bottom left, top;
+    background-repeat: no-repeat;
+    background-attachment: fixed, scroll;
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
