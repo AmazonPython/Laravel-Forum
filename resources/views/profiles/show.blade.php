@@ -14,8 +14,9 @@
                     <a class="ml-4" style="text-decoration: none;color: #212529">
                         @lang('messages.profiles_joined') <b>{{ $profileUser->created_at->diffForHumans() }}</b>
                     </a><br />
+                    <a>({{ $profileUser->reputation }} XP)</a>
                     <img src="{{ $profileUser->avatar ?: $profileUser->defaultAvatar() }}" alt="{{ $profileUser->name }} Avatar" style="border-radius: 500px; width: 200px;height: 200px">
-                    ({{ $profileUser->reputation }} XP)
+
                     @can('update', $profileUser)
                         <form method="post" action="{{ route('avatar', $profileUser) }}" enctype="multipart/form-data">
                             @csrf
