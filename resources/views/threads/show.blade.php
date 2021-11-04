@@ -20,7 +20,7 @@
                     <div class="card-header">
                         <a href="{{ route('profile', $thread->creator) }}" style="text-decoration: none;">
                             <img src="{{ $thread->creator->avatar ?: $thread->creator->defaultAvatar() }}" alt="{{ $thread->creator->name }} Avatar" style="border-radius: 500px; width: 30px; height: 30px;">
-                            <b>{{ $thread->creator->name }}</b>
+                            <b>{{ $thread->creator->name }}</b>({{ $thread->creator->reputation }} XP)
                         </a>
                         <a>@lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
 
