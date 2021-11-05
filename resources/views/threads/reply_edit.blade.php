@@ -6,9 +6,7 @@
 
 @section('js')
     @include('partials.editor')
-    {{--<script src="https://www.google.com/recaptcha/api.js" async defer></script>--}}
-    <!-- 中国大陆地区无法连接到谷歌服务的代替方案 -->
-    <script src="https://recaptcha.net/recaptcha/api.js" async defer></script>
+    @include('partials.recaptcha')
 @endsection
 
 @section('content')
@@ -28,7 +26,7 @@
                             <div class="form-group">
                                 <textarea class="form-control" name="body" id="editor">{{ $reply->body }}</textarea>
                             </div>
-                            <div class="g-recaptcha" data-sitekey="{{ env('recaptcha_key') }}"></div>
+                            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_KEY') }}"></div>
                             <button type="submit" class="btn btn-primary">
                                 @lang('messages.threads_publish_thread')
                             </button>
