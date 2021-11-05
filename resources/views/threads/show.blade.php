@@ -14,57 +14,46 @@
                 </div>
 
                 <div class="card-body">
-                    <h3 class="text-center">
-                        <a href="{{ url($thread->path()) }}" style="text-decoration: none;">{{ $thread->title }}</a>
-                    </h3>
-                    <div class="card-header">
-                        <a href="{{ route('profile', $thread->creator) }}" style="text-decoration: none;">
-                            <img src="{{ $thread->creator->avatar ?: $thread->creator->defaultAvatar() }}" alt="{{ $thread->creator->name }} Avatar" style="border-radius: 500px; width: 30px; height: 30px;">
-                            <b>{{ $thread->creator->name }}</b>({{ $thread->creator->reputation }} XP)
-                        </a>
-                        <a>@lang('messages.threads_index_published') <b>{{ $thread->created_at->diffForHumans() }}</b></a>
+                    @include('threads._list')
 
-                        @can('update', $thread)
-                            <br /><br />
-                            <a href="{{ $thread->path() . '/edit' }}" class="btn btn-info float-left">@lang('messages.threads_edit')</a>
-                            <form action="{{ $thread->path() }}" method="post" class="float-right">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
-                                    @lang('messages.threads_delete')
-                                </button>
-                            </form>
-                            <br /><hr>
-                        @endcan
+                    @can('update', $thread)
+                        <br /><br />
+                        <a href="{{ $thread->path() . '/edit' }}" class="btn-sm btn-outline-primary float-left">@lang('messages.threads_edit')</a>
+                        <form action="{{ $thread->path() }}" method="post" class="float-right">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn-sm btn-outline-danger">
+                                @lang('messages.threads_delete')
+                            </button>
+                        </form>
+                        <br /><hr>
+                    @endcan
 
-                        @auth
-                            @if(auth()->user()->isAdmin($thread->creator))
-                                @if($thread->locked == true)
-                                    <form action="{{ url('unlocked', $thread) }}" method="post">
-                                        @csrf
-                                        <button class="btn-sm btn-outline-primary float-right ml-2">解锁</button>
-                                    </form>
-                                @else
-                                    <form action="{{ url('locked', $thread) }}" method="post">
-                                        @csrf
-                                        <button class="btn-sm btn-outline-info float-right ml-2">锁定</button>
-                                    </form>
-                                @endif
-                            @endif
-
-                            @if ($thread->subscribe(Auth::id())->exists())
-                                <a href="{{ $thread->path() . '/unsubscribe' }}" type="button" class="btn-sm btn-outline-primary float-right">
-                                    @lang('messages.threads_unsubscribe')
-                                </a>
+                    @auth
+                        @if(auth()->user()->isAdmin($thread->creator))
+                            @if($thread->locked == true)
+                                <form action="{{ url('unlocked', $thread) }}" method="post">
+                                    @csrf
+                                    <button class="btn-sm btn-outline-primary float-right ml-2">解锁</button>
+                                </form>
                             @else
-                                <a href="{{ $thread->path() . '/subscribe' }}" type="button" class="btn-sm btn-outline-info float-right">
-                                    @lang('messages.threads_subscribe')
-                                </a>
+                                <form action="{{ url('locked', $thread) }}" method="post">
+                                    @csrf
+                                    <button class="btn-sm btn-outline-info float-right ml-2">锁定</button>
+                                </form>
                             @endif
-                        @endauth
-                        <br />@lang('messages.threads_index_there_have_been')
-                        <a><b>{{ $thread->visits }}</b> @lang('messages.threads_visits')</a>
-                        <a><b>{{ $thread->replies_count }}</b> @lang('messages.threads_replies')</a>
+                        @endif
+
+                        @if($thread->subscribe(Auth::id())->exists())
+                            <a href="{{ $thread->path() . '/unsubscribe' }}" type="button" class="btn-sm btn-outline-primary float-right">
+                                @lang('messages.threads_unsubscribe')
+                            </a>
+                        @else
+                            <a href="{{ $thread->path() . '/subscribe' }}" type="button" class="btn-sm btn-outline-info float-right">
+                                @lang('messages.threads_subscribe')
+                            </a>
+                        @endif
+                    @endauth<br />
                     </div>
 
                     <div class="card-body">
