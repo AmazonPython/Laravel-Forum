@@ -77,9 +77,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return  'https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/avatar.jpeg';
     }
-
-    public function isAdmin()
-    {
-        return in_array($this->name, ['Hugo']);
-    }
 }

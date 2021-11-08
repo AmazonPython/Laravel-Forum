@@ -69,7 +69,7 @@ Route::get('search', 'SearchController@show')->name('user.search');
 // 后台管理
 Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard.index');
-    Route::post('/channels', 'ChannelsController@store')->name('admin.channels.store');
-    Route::get('/channels', 'ChannelsController@index')->name('admin.channels.index');
-    Route::get('/channels/create', 'ChannelsController@create')->name('admin.channels.create');
+    Route::post('/channel', 'ChannelController@store')->name('admin.channel.store');
+    Route::get('/channel', 'ChannelController@index')->name('admin.channel.index');
+    Route::get('/channel/create', 'ChannelController@create')->name('admin.channel.create');
 });
