@@ -30,7 +30,7 @@
                     @endcan
 
                     @auth
-                        @if(auth()->user()->isAdmin($thread->creator))
+                        @if(auth()->user()->isAdmin)
                             @if($thread->locked == true)
                                 <form action="{{ url('unlocked', $thread) }}" method="post">
                                     @csrf
