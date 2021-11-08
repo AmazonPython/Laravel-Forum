@@ -22,6 +22,8 @@ class Thread extends Model
 
         static::deleting(function ($thread) {
             $thread->replies->each->delete();
+
+            Reputation::reduce($thread->creator, Reputation::THREAD_WAS_PUBLISHED);
         });
 
         static::created(function ($thread) {
@@ -105,10 +107,24 @@ class Thread extends Model
         return $this->updated_at > cache($key);
     }
 
+    public function bestReply()
+    {
+        return $this->hasOne(Reply::class, 'thread_id');
+    }
+
     public function markBestReply(Reply $reply)
     {
+        if ($this->hasBestReply()) {
+            Reputation::reduce($this->bestReply->owner, Reputation::BEST_REPLY_AWARDED);
+        }
+
         $this->update(['best_reply_id' => $reply->id]);
 
         Reputation::award($reply->owner, Reputation::BEST_REPLY_AWARDED);
+    }
+
+    public function hasBestReply()
+    {
+        return ! is_null($this->best_reply_id);
     }
 }
