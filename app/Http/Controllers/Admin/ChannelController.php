@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Channel;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 
@@ -25,7 +26,7 @@ class ChannelController extends Controller
             'description' => 'required',
         ]);
 
-        $channel = Channel::create($data + [ 'slug' => str_slug($data['name'])]);
+        $channel = Channel::create($data + [ 'slug' => Str::slug($data['name'])]);
 
         Cache::forget('channels');
 
@@ -33,6 +34,6 @@ class ChannelController extends Controller
             return response($channel, 201);
         }
 
-        return redirect(route('admin.channels.index'))->with('flash', 'Success!');
+        return redirect(route('admin.channel.index'))->with('flash', 'Success!');
     }
 }
