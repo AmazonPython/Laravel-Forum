@@ -1,21 +1,24 @@
 @extends('admin.layouts.app')
 
+@section('title')
+    @lang('messages.admin_add_channel') - {{ config('app.name') }}
+@endsection
+
 @section('administration-content')
 <form method="POST" action="{{ route('admin.channel.store') }}">
     {{ csrf_field() }}
-
     <div class="form-group">
-        <label for="name">频道名称：</label>
+        <label for="name">@lang('messages.admin_channel_name')</label>
         <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
     </div>
 
     <div class="form-group">
-        <label for="description">描述：</label>
+        <label for="description">@lang('messages.admin_channel_description')</label>
         <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}" required>
     </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">添加新频道</button>
+        <button type="submit" class="btn btn-primary">@lang('messages.admin_add_channel')</button>
     </div>
 
     @if (count($errors))

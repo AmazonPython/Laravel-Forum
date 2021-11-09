@@ -112,4 +112,12 @@ return [
     'search_result_null' => '服务器君暂时没有找到结果。',
 
     'recaptcha' => 'reCAPTCHA验证失败，再试一次。',
+
+    'admin_dashboard' => '控制面板',
+    'admin_channel_name' => '频道名称：',
+    'admin_channel_description' => '频道描述：',
+    'admin_add_channel' => '添加新频道',
+    'admin_channel_slug' => 'SEO标题：',
+    'admin_channel_threads' => '帖子数：',
+    'admin_new_channel' => '新频道',
 ];

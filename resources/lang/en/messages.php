@@ -111,5 +111,13 @@ return [
     'search_result' => 'results in total.',
     'search_result_null' => 'The server has not found the result yet.',
 
-    'recaptcha' => 'The recaptcha verification failed. Try again.'
+    'recaptcha' => 'The recaptcha verification failed. Try again.',
+
+    'admin_dashboard' => 'DashBoard',
+    'admin_channel_name' => 'Channel name:',
+    'admin_channel_description' => 'Description:',
+    'admin_add_channel' => 'Add new channel',
+    'admin_channel_slug' => 'Slug:',
+    'admin_channel_threads' => 'threads:',
+    'admin_new_channel' => 'New channel',
 ];
