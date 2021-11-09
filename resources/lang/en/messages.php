@@ -116,8 +116,9 @@ return [
     'admin_dashboard' => 'DashBoard',
     'admin_channel_name' => 'Channel name:',
     'admin_channel_description' => 'Description:',
-    'admin_add_channel' => 'Add new channel',
     'admin_channel_slug' => 'Slug:',
     'admin_channel_threads' => 'threads:',
     'admin_new_channel' => 'New channel',
+    'admin_add_channel' => 'Add new channel',
+    'admin_add_channel_success' => 'Channel created successfully!',
 ];
