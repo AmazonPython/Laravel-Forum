@@ -34,6 +34,6 @@ class ChannelController extends Controller
             return response($channel, 201);
         }
 
-        return redirect(route('admin.channel.index'))->with('flash', 'Success!');
+        return redirect(route('admin.channel.index'))->with('flash', trans('messages.admin_add_channel_success'));
     }
 }

@@ -33,18 +33,6 @@ class ProfileController extends Controller
         return redirect()->back();
     }
 
-    public function search(Request $request)
-    {
-        $keyword = $request->input('query');
-
-        $users = User::select(['id', 'name', 'avatar', 'created_at'])
-            ->where('name', 'LIKE', "$keyword%")
-            ->orderBy('id')
-            ->simplePaginate(10);
-
-        return view('partials.search', compact('users'));
-    }
-
     public function avatar(Request $request, User $user)
     {
         request()->validate([

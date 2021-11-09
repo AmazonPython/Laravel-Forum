@@ -114,8 +114,9 @@ return [
     'admin_dashboard' => '控制面板',
     'admin_channel_name' => '频道名称：',
     'admin_channel_description' => '频道描述：',
-    'admin_add_channel' => '添加新频道',
     'admin_channel_slug' => 'SEO标题：',
     'admin_channel_threads' => '帖子数：',
     'admin_new_channel' => '新频道',
+    'admin_add_channel' => '添加新频道',
+    'admin_add_channel_success' => '频道创建成功！',
 ];
