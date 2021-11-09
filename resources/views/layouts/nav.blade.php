@@ -38,6 +38,7 @@
                     </ul>
                 </li>
             </ul>
+            <!-- 搜索 -->
             <form class="form-inline" id="searchInput" role="search" method="get" action="{{ route('user.search') }}">
                 <div class="input-group">
                     <input type="text" class="form-control" name="q" placeholder="Search" required>
@@ -96,6 +97,9 @@
                             <a class="dropdown-item" href="{{ route('profile', Auth::user()) }}">
                                 @lang('messages.auth_home')
                             </a>
+                            @if (Auth::user()->isAdmin)
+                                <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">@lang('messages.admin_dashboard')</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
