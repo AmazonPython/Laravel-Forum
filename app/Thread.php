@@ -29,6 +29,8 @@ class Thread extends Model
         static::created(function ($thread) {
             $thread->update(['slug' => $thread->title]);
 
+            $thread->notifyMentionedUsers();
+
             Reputation::award($thread->creator, Reputation::THREAD_WAS_PUBLISHED);
         });
     }
