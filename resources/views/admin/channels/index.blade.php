@@ -30,7 +30,7 @@
             </tr>
         @empty
             <tr>
-                <td>(ーー゛)</td>
+                <td>‾\_(”ノ)_/‾</td>
             </tr>
         @endforelse
     </tbody>
