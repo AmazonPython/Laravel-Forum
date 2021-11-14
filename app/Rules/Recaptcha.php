@@ -7,6 +7,9 @@ use Illuminate\Contracts\Validation\Rule;
 
 class Recaptcha implements Rule
 {
+    // 中国大陆地区无法连接到谷歌服务的代替方案 原网址 https://www.google.com/recaptcha/api/siteverify
+    const URL = 'https://recaptcha.net/recaptcha/api/siteverify';
+
     /**
      * Create a new rule instance.
      *
@@ -26,8 +29,7 @@ class Recaptcha implements Rule
      */
     public function passes($attribute, $value)
     {
-        // 中国大陆地区无法连接到谷歌服务的代替方案 原网址 https://www.google.com/recaptcha/api/siteverify
-        return Zttp::asFormParams()->post('https://recaptcha.net/recaptcha/api/siteverify', [
+        return Zttp::asFormParams()->post(static::URL, [
             'secret' => config('services.recaptcha.secret'),
             'response' => $value,
             'remoteip' => request()->ip()
