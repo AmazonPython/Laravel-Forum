@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Support\Facades\Redis;
-use Illuminate\Support\Facades\Cache;
 
 class Trending
 {
@@ -14,11 +13,7 @@ class Trending
      */
     public function get()
     {
-        //return array_map('json_decode', Redis::zrevrange($this->cacheKey(), 0, 9));
-        return Cache::get($this->cacheKey(), collect())
-            ->sortByDesc('score')
-            ->slice(0, 5)
-            ->values();
+        return array_map('json_decode', Redis::zrevrange($this->cacheKey(), 0, 9));
     }
 
     /**
@@ -36,33 +31,13 @@ class Trending
      *
      * @param Thread $thread
      */
-    public function push($thread, $increment = 1)
+    public function push($thread)
     {
-        /*Redis::zincrby($this->cacheKey(), 1, json_encode([
+        Redis::zincrby($this->cacheKey(), 1, json_encode([
                 'title' => $thread->title,
                 'path' => $thread->path()
             ])
-        );*/
-        $trending = Cache::get($this->cacheKey(), collect());
-
-        $trending[$thread->id] = (object) [
-            'score' => $this->score($thread) + $increment,
-            'title' => $thread->title,
-            'path' => $thread->path(),
-        ];
-
-        Cache::forever($this->cacheKey(), $trending);
-    }
-
-    public function score($thread)
-    {
-        $trending = Cache::get($this->cacheKey(), collect());
-
-        if (! isset($trending[$thread->id])) {
-            return 0;
-        }
-
-        return $trending[$thread->id]->score;
+        );
     }
 
     /**
@@ -70,7 +45,6 @@ class Trending
      */
     public function reset()
     {
-        //Redis::del($this->cacheKey());
-        return Cache::forget($this->cacheKey());
+        Redis::del($this->cacheKey());
     }
 }
