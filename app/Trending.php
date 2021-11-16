@@ -34,8 +34,9 @@ class Trending
      *
      * @param Thread $thread
      */
-    public function push($thread, $increment = 1)
+    public function push($thread)
     {
+
         $trending = Cache::get($this->cacheKey(), collect());
 
         $trending[$thread->id] = (object) [
