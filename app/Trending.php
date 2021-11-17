@@ -34,7 +34,7 @@ class Trending
      *
      * @param Thread $thread
      */
-    public function push($thread)
+    public function push($thread, $increment = 1)
     {
 
         $trending = Cache::get($this->cacheKey(), collect());
