@@ -10,8 +10,8 @@
                 <a>@lang('messages.threads_replied') <b>{{ $reply->created_at->diffForHumans() }}</b></a>
                 <br /><br />
                 @if($reply->id == $thread->best_reply_id)
-                    <button class="btn btn-sm btn-outline-info float-right">
-                        @lang('messages.threads_best_reply')
+                    <button class="btn btn-sm btn-outline-info float-right ml-1">
+                        <i class="fas fa-medal"></i> @lang('messages.threads_best_reply')
                     </button>
                 @endif
             @else

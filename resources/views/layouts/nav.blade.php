@@ -16,15 +16,35 @@
                     </a>
 
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('/threads') }}" class="dropdown-item">@lang('messages.nav_all_threads')</a></li>
+                        <li>
+                            <a href="{{ url('/threads') }}" class="dropdown-item">
+                                <i class="fas fa-sticky-note"></i> @lang('messages.nav_all_threads')
+                            </a>
+                        </li>
                         @auth
-                            <li><a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">@lang('messages.nav_my_threads')</a></li>
+                            <li>
+                                <a href="{{ url('threads' . '?by=' . auth()->user()->name) }}" class="dropdown-item">
+                                    <i class="fas fa-user-tag"></i> @lang('messages.nav_my_threads')
+                                </a>
+                            </li>
                         @endauth
-                        <li><a href="{{ url('threads' . '?popular=1') }}" class="dropdown-item">@lang('messages.nav_popular_threads')</a></li>
-                        <li><a href="{{ url('threads' . '?unanswered=1') }}" class="dropdown-item">@lang('messages.nav_unanswered_threads')</a></li>
+                        <li>
+                            <a href="{{ url('threads' . '?popular=1') }}" class="dropdown-item">
+                                <i class="fas fa-fire"></i> @lang('messages.nav_popular_threads')
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('threads' . '?unanswered=1') }}" class="dropdown-item">
+                                <i class="far fa-question-circle"></i> @lang('messages.nav_unanswered_threads')
+                            </a>
+                        </li>
                     </ul>
                 </li>
-                <li><a href="{{ url('threads/create') }}" class="nav-link">@lang('messages.nav_new_thread')</a></li>
+                <li>
+                    <a href="{{ url('threads/create') }}" class="nav-link">
+                        <i class="fas fa-paint-brush"></i> @lang('messages.nav_new_thread')
+                    </a>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">@lang('messages.nav_channels') <span class="caret"></span>
@@ -53,11 +73,15 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">@lang('messages.auth_login')</a>
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <i class="fas fa-lock"></i> @lang('messages.auth_login')
+                        </a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">@lang('messages.auth_register')</a>
+                            <a class="nav-link" href="{{ route('register') }}">
+                                <i class="fas fa-unlock"></i> @lang('messages.auth_register')
+                            </a>
                         </li>
                     @endif
                 @else
@@ -95,7 +119,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('profile', Auth::user()) }}">
-                                @lang('messages.auth_home')
+                                <i class="fas fa-user"></i> @lang('messages.auth_home')
                             </a>
                             @if (Auth::user()->isAdmin)
                                 <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">@lang('messages.admin_dashboard')</a>
@@ -103,7 +127,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                @lang('messages.auth_logout')
+                                <i class="fas fa-sign-out-alt"></i> @lang('messages.auth_logout')
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
