@@ -64,8 +64,9 @@
                         {{ $replies->links() }}
                     </div>
                 </div>
-            </div>
+            </div><hr>
         </div>
+        @include('sidebar')
     </div>
 </div>
 @endsection
