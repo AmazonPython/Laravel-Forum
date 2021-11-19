@@ -75,6 +75,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function defaultAvatar()
     {
-        return  'https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/avatar.jpeg';
+        return 'https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/avatar.jpeg';
     }
 }

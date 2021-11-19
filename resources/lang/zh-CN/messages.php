@@ -63,7 +63,7 @@ return [
     'threads_replied' => '回复于',
     'threads_replied_to' => ' 回复于 ',
     'threads_set_as_best_reply' => '设为最佳',
-    'threads_best_reply' => '最佳回复',
+    'threads_best_reply' => '最佳',
     'threads_reply_success' => '您的回复已经留下。',
     'threads_login_to_reply' => '请点击此处登录后评论',
     'threads_replied_mentioned' => ' @了你 ',

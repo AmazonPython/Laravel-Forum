@@ -52,6 +52,7 @@ class ThreadController extends Controller
 
         return view('threads.show', [
             'thread' => $thread,
+            'trending' => $trending->get(),
             'replies' => $thread->replies()->paginate(20)
         ]);
     }
