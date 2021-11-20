@@ -35,7 +35,7 @@ return [
     'auth_send_password_reset_link' => '发送重置密码链接至邮箱',
 
     'nav_browse' => '浏览',
-    'nav_all_threads' => '帖子',
+    'nav_all_threads' => '所有帖子',
     'nav_my_threads' => '我的帖子',
     'nav_popular_threads' => '流行热帖',
     'nav_unanswered_threads' => '未读帖子',

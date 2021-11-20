@@ -43,7 +43,7 @@ return [
     'nav_channels' => 'Channels',
 
     'welcome_title' => 'Welcome to ',
-    'welcome_featurette_heading' => 'The forum is build based on Laravel.',
+    'welcome_featurette_heading' => 'The forum is built based on Laravel.',
     'welcome_featurette-text' => 'We are committed to exchanging computer science and technology and trying to make our voices heard all over the world. Want to try PHP, the best language in the world? Welcome to contribute code. If you like, you can light up a small star for the project. Finally, take care of yourself and happy coding!',
 
     'threads_index_title' => 'Threads page',
