@@ -122,7 +122,9 @@
                                 <i class="fas fa-user"></i> @lang('messages.auth_home')
                             </a>
                             @if (Auth::user()->isAdmin)
-                                <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">@lang('messages.admin_dashboard')</a>
+                                <a class="dropdown-item" href="{{ route('admin.dashboard.index') }}">
+                                    <i class="fas fa-tachometer-alt"></i> @lang('messages.admin_dashboard')
+                                </a>
                             @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
