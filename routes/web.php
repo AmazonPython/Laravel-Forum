@@ -72,4 +72,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admi
     Route::post('/channel', 'ChannelController@store')->name('admin.channel.store');
     Route::get('/channel', 'ChannelController@index')->name('admin.channel.index');
     Route::get('/channel/create', 'ChannelController@create')->name('admin.channel.create');
+    Route::get('/thread', 'ThreadController@index')->name('admin.thread.index');
+    Route::get('/thread/reset', 'ThreadController@reset')->name('admin.thread.reset');
 });
