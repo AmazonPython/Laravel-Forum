@@ -2,15 +2,16 @@
 
 namespace App\Extensions;
 
-use Illuminate\Support\Str;
 use Illuminate\Auth\EloquentUserProvider as BaseUserProvider;
+use Illuminate\Support\Str;
 
 class EloquentUserProvider extends BaseUserProvider
 {
     /**
      * Retrieve a user by the given credentials.
      *
-     * @param  array  $credentials
+     * @param array $credentials
+     *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object
      */
     public function retrieveByCredentials(array $credentials)

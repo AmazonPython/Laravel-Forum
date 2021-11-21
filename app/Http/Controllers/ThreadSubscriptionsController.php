@@ -15,7 +15,7 @@ class ThreadSubscriptionsController extends Controller
     public function subscribe($channelId, Thread $thread)
     {
         $param = [
-            'user_id' => auth()->id(),
+            'user_id'   => auth()->id(),
             'thread_id' => $thread->id,
         ];
 

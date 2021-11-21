@@ -11,11 +11,11 @@ $factory->define(Thread::class, function (Faker $faker) {
     $title = $faker->sentence;
 
     return [
-        'user_id' => User::count() ? User::pluck('id')->random() : factory(User::class),
+        'user_id'    => User::count() ? User::pluck('id')->random() : factory(User::class),
         'channel_id' => factory(Channel::class),
-        'title' => $title,
-        'body' => $faker->paragraph,
-        'visits' => 0,
-        'locked' => false
+        'title'      => $title,
+        'body'       => $faker->paragraph,
+        'visits'     => 0,
+        'locked'     => false,
     ];
 });

@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use PHPUnit\Framework\TestCase;
 
 class ReplyTest extends TestCase
 {

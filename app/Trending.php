@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Redis;
 class Trending
 {
     /**
-     * 获取所有热门线程
+     * 获取所有热门线程.
      *
      * @return array
      */
@@ -17,7 +17,7 @@ class Trending
     }
 
     /**
-     * 获取缓存键名
+     * 获取缓存键名.
      *
      * @return string
      */
@@ -27,7 +27,7 @@ class Trending
     }
 
     /**
-     * 将新线程推送到热门线程列表
+     * 将新线程推送到热门线程列表.
      *
      * @param Thread $thread
      */
@@ -40,7 +40,7 @@ class Trending
     }
 
     /**
-     * 重置所有热门线程
+     * 重置所有热门线程.
      */
     public function reset()
     {

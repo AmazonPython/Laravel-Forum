@@ -2,9 +2,8 @@
 
 namespace Tests\Feature;
 
-use phpDocumentor\Reflection\Types\Parent_;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
 class ThreadsTest extends TestCase
 {
@@ -12,13 +11,13 @@ class ThreadsTest extends TestCase
 
     public function setUp()
     {
-        Parent::setUp();
+        parent::setUp();
 
         $this->thread = factory('App\Thread')->create();
     }
 
     /**
-     threads test
+     * threads test.
      */
     public function index()
     {
@@ -32,7 +31,7 @@ class ThreadsTest extends TestCase
     {
         //$thread = factory('App\Thread')->create();
 
-        $response = $this->get('/threads/' . $this->thread->id);
+        $response = $this->get('/threads/'.$this->thread->id);
         $response->assertSee($this->thread->title);
     }
 }

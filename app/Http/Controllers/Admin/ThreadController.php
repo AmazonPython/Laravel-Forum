@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Thread;
 use App\Trending;
-use App\Http\Controllers\Controller;
 
 class ThreadController extends Controller
 {
