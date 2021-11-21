@@ -24,8 +24,8 @@ class ThreadWasUpdated extends Notification
     public function toArray()
     {
         return [
-            'message' => $this->reply->owner->name . trans('messages.threads_replied_to') . $this->thread->title,
-            'link' => $this->reply->path()
+            'message' => $this->reply->owner->name.trans('messages.threads_replied_to').$this->thread->title,
+            'link'    => $this->reply->path(),
         ];
     }
 }

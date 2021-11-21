@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
-    use Favoritable, RecordsActivity;
+    use Favoritable;
+    use RecordsActivity;
 
     protected $guarded = [];
 
@@ -47,7 +48,7 @@ class Reply extends Model
 
     public function path()
     {
-        return $this->thread->path() . "#reply-{$this->owner->name}-{$this->id}";
+        return $this->thread->path()."#reply-{$this->owner->name}-{$this->id}";
     }
 
     public function mentionedUsers()

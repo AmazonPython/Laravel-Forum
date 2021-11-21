@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
 trait Favoritable
 {
     protected static function bootFavoritable()
@@ -22,7 +20,7 @@ trait Favoritable
     {
         $arrtributes = ['user_id' => auth()->id()];
 
-        if (! $this->favorites()->where($arrtributes)->exists()){
+        if (!$this->favorites()->where($arrtributes)->exists()) {
             return $this->favorites()->create($arrtributes);
         }
     }
@@ -36,7 +34,7 @@ trait Favoritable
 
     public function isFavorited()
     {
-        return ! ! $this->favorites->where('user_id', auth()->id())->count();
+        return (bool) $this->favorites->where('user_id', auth()->id())->count();
     }
 
     public function getIsFavoritedAttribute()
