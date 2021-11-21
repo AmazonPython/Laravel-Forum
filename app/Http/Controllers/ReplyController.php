@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Reply;
-use App\Thread;
 use App\Channel;
+use App\Reply;
 use App\Rules\Recaptcha;
+use App\Thread;
 
 class ReplyController extends Controller
 {
@@ -16,15 +16,15 @@ class ReplyController extends Controller
 
     public function store(Channel $channel, Thread $thread, Recaptcha $recaptcha)
     {
-        $this->validate(request(),[
-            'body' => 'required|min:3',
+        $this->validate(request(), [
+            'body'                 => 'required|min:3',
             'g-recaptcha-response' => $recaptcha,
         ]);
 
         if ($thread->locked == false) {
             $reply = $thread->addReply([
-                'body' => request('body'),
-                'user_id' => auth()->id()
+                'body'    => request('body'),
+                'user_id' => auth()->id(),
             ]);
 
             if (request()->expectsJson()) {
@@ -45,7 +45,7 @@ class ReplyController extends Controller
         $this->authorize('update', $reply);
 
         $this->validate(request(), [
-            'body' => 'required|min:3',
+            'body'                 => 'required|min:3',
             'g-recaptcha-response' => $recaptcha,
         ]);
 

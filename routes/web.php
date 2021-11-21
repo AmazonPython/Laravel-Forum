@@ -22,7 +22,7 @@ Auth::routes(['verify' => true]);
 // 语言切换
 Route::get('lang/{locale}', 'HomeController')->name('lang');
 
-Route::group(['prefix' => 'threads'], function (){
+Route::group(['prefix' => 'threads'], function () {
     // 帖子相关
     Route::get('/', 'ThreadController@index');
     Route::middleware('throttle:3')->post('/', 'ThreadController@store');
@@ -45,7 +45,7 @@ Route::group(['prefix' => 'threads'], function (){
 Route::post('/locked/{thread}', 'ThreadController@lock')->middleware('admin');
 Route::post('/unlocked/{thread}', 'ThreadController@unlock')->middleware('admin');
 
-Route::group(['prefix' => 'replies'], function (){
+Route::group(['prefix' => 'replies'], function () {
     // 回复更新、删除与点赞
     Route::get('/{reply}/edit', 'ReplyController@edit');
     Route::patch('/{reply}', 'ReplyController@update');
@@ -55,7 +55,7 @@ Route::group(['prefix' => 'replies'], function (){
     Route::delete('/{reply}/favorites', 'FavoriteController@destroy');
 });
 
-Route::group(['prefix' => 'profiles'], function (){
+Route::group(['prefix' => 'profiles'], function () {
     // 用户页
     Route::get('/{user}', 'ProfileController@show')->name('profile');
     Route::get('/{user}/notifications', 'ProfileController@all');
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'profiles'], function (){
 Route::get('search', 'SearchController@show')->name('user.search');
 
 // 后台管理
-Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard.index');
     Route::post('/channel', 'ChannelController@store')->name('admin.channel.store');
     Route::get('/channel', 'ChannelController@index')->name('admin.channel.index');
