@@ -121,4 +121,6 @@ return [
     'admin_new_channel' => 'New channel',
     'admin_add_channel' => 'Add new channel',
     'admin_add_channel_success' => 'Channel created successfully!',
+    'admin_reset_threads_trending' => 'Reset all trending threads',
+    'admin_reset_threads_trending_success' => 'Reset all trending threads succeeded!',
 ];

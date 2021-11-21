@@ -121,4 +121,6 @@ return [
     'admin_new_channel' => '新频道',
     'admin_add_channel' => '添加新频道',
     'admin_add_channel_success' => '频道创建成功！',
+    'admin_reset_threads_trending' => '重置热门话题',
+    'admin_reset_threads_trending_success' => '重置热门话题成功！',
 ];
