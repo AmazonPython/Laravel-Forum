@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Cache;
 class Trending
 {
     /**
-     * 获取所有热门线程
+     * 获取所有热门线程.
      *
      * @return array
      */
@@ -20,7 +20,7 @@ class Trending
     }
 
     /**
-     * 获取缓存键名
+     * 获取缓存键名.
      *
      * @return string
      */
@@ -30,19 +30,18 @@ class Trending
     }
 
     /**
-     * 将新线程推送到热门线程列表
+     * 将新线程推送到热门线程列表.
      *
      * @param Thread $thread
      */
     public function push($thread, $increment = 1)
     {
-
         $trending = Cache::get($this->cacheKey(), collect());
 
         $trending[$thread->id] = (object) [
             'score' => $this->score($thread) + $increment,
             'title' => $thread->title,
-            'path' => $thread->path(),
+            'path'  => $thread->path(),
         ];
 
         Cache::forever($this->cacheKey(), $trending);
@@ -52,7 +51,7 @@ class Trending
     {
         $trending = Cache::get($this->cacheKey(), collect());
 
-        if (! isset($trending[$thread->id])) {
+        if (!isset($trending[$thread->id])) {
             return 0;
         }
 
@@ -60,7 +59,7 @@ class Trending
     }
 
     /**
-     * 重置所有热门线程
+     * 重置所有热门线程.
      */
     public function reset()
     {
