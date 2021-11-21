@@ -11,6 +11,9 @@
                 <li class="nav-link" role="presentation">
                     <a href="{{ route('admin.channel.index') }}">@lang('messages.nav_channels')</a>
                 </li>
+                <li class="nav-link" role="presentation">
+                    <a href="{{ route('admin.thread.index') }}">@lang('messages.threads_trending')</a>
+                </li>
             </ul>
         </div>
 
