@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Filters\ThreadFilters;
 use App\Events\ThreadReceivedNewReply;
+use App\Filters\ThreadFilters;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
@@ -72,8 +72,7 @@ class Thread extends Model
     {
         $this->attributes['title'] = $value;
 
-        if (! $this->exists)
-        {
+        if (!$this->exists) {
             $this->attributes['slug'] = str_replace(' ', '-', $value);
         }
     }
@@ -130,6 +129,6 @@ class Thread extends Model
 
     public function hasBestReply()
     {
-        return ! is_null($this->best_reply_id);
+        return !is_null($this->best_reply_id);
     }
 }

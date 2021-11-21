@@ -23,7 +23,7 @@ class ChannelController extends Controller
     {
         $channel = Channel::create(
             request()->validate([
-                'name' => 'required|unique:channels',
+                'name'        => 'required|unique:channels',
                 'description' => 'required',
             ])
         );

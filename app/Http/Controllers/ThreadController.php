@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Thread;
 use App\Channel;
-use App\Trending;
-use App\Rules\Recaptcha;
-use Illuminate\Http\Request;
 use App\Filters\ThreadFilters;
+use App\Rules\Recaptcha;
+use App\Thread;
+use App\Trending;
+use Illuminate\Http\Request;
 
 class ThreadController extends Controller
 {
@@ -25,8 +25,8 @@ class ThreadController extends Controller
         }
 
         return view('threads.index', [
-            'threads' => $threads,
-            'trending' => $trending->get()
+            'threads'  => $threads,
+            'trending' => $trending->get(),
         ]);
     }
 
@@ -34,7 +34,7 @@ class ThreadController extends Controller
     {
         $threads = Thread::filter($filters);
 
-        if ($channel->exists){
+        if ($channel->exists) {
             $threads->where('channel_id', $channel->id);
         }
 
@@ -51,9 +51,9 @@ class ThreadController extends Controller
         $thread->increment('visits');
 
         return view('threads.show', [
-            'thread' => $thread,
+            'thread'   => $thread,
             'trending' => $trending->get(),
-            'replies' => $thread->replies()->paginate(20)
+            'replies'  => $thread->replies()->paginate(20),
         ]);
     }
 
@@ -67,17 +67,17 @@ class ThreadController extends Controller
     public function store(Request $request, Recaptcha $recaptcha)
     {
         $request->validate([
-            'title' => 'required|max:100|min:2',
-            'body' => 'required|min:9',
-            'channel_id' => 'required|exists:channels,id',
+            'title'                => 'required|max:100|min:2',
+            'body'                 => 'required|min:9',
+            'channel_id'           => 'required|exists:channels,id',
             'g-recaptcha-response' => $recaptcha,
         ]);
 
         $thread = Thread::create([
-            'user_id' => auth()->id(),
+            'user_id'    => auth()->id(),
             'channel_id' => $request->channel_id,
-            'title' => $request->title,
-            'body' => $request->body,
+            'title'      => $request->title,
+            'body'       => $request->body,
         ]);
 
         if (request()->wantsJson()) {
@@ -97,9 +97,9 @@ class ThreadController extends Controller
         $this->authorize('update', $thread);
 
         $this->validate(request(), [
-            'title' => 'required|max:100|min:2',
-            'body' => 'required|min:9',
-            'channel_id' => 'required|exists:channels,id',
+            'title'                => 'required|max:100|min:2',
+            'body'                 => 'required|min:9',
+            'channel_id'           => 'required|exists:channels,id',
             'g-recaptcha-response' => $recaptcha,
         ]);
 

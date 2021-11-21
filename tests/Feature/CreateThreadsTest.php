@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Lumen\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
@@ -11,7 +9,7 @@ class CreateThreadsTest extends TestCase
 {
     use DatabaseMigrations;
 
-    function guest_may_not_create_threads()
+    public function guest_may_not_create_threads()
     {
         $this->expectException('Illuminate\Auth\AutheticationException');
 
@@ -20,7 +18,7 @@ class CreateThreadsTest extends TestCase
         $this->post('threads', $thread->toArray());
     }
 
-    function an_authenticated_user_can_create_new_forum_thread()
+    public function an_authenticated_user_can_create_new_forum_thread()
     {
         $this->actingAs(create('App\User'));
 
