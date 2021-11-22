@@ -1,4 +1,9 @@
-# Laravel-Forum [![Badge](https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge)](https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge) [![Badge rank](https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge/rank)](https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge/rank) [![License](https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/License-Anti-996-green.svg)](https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/License-Anti-996-green.svg) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AmazonPython/Laravel-Forum/Laravel?style=flat-square) [![StyleCI](https://github.styleci.io/repos/285720340/shield?branch=master)](https://github.styleci.io/repos/285720340?branch=master) 
+# Laravel-Forum 
+[![Badge](https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge)](https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge) 
+[![Badge rank](https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge/rank)](https://data.jsdelivr.com/v1/package/gh/AmazonPython/Laravel-Forum/badge/rank) 
+[![License](https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/License-Anti-996-green.svg)](https://cdn.jsdelivr.net/gh/AmazonPython/Laravel-Forum@master/public/images/License-Anti-996-green.svg) 
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AmazonPython/Laravel-Forum/Laravel?style=flat-square)](https://github.com/AmazonPython/Laravel-Forum/actions?query=workflow%3ALaravel)
+[![StyleCI](https://github.styleci.io/repos/285720340/shield?branch=master)](https://github.styleci.io/repos/285720340?branch=master) 
 
 The forum is built based on Laravel. Compliance with BSD 3-Clause License and anti 996 License.
 
