@@ -22,7 +22,7 @@
                         @lang('messages.profiles_joined') <b>{{ $profileUser->created_at->diffForHumans() }}</b>
                     </a><br />
                     @include('profiles.level')
-                    <img src="{{ $profileUser->avatar ?: $profileUser->defaultAvatar() }}" alt="{{ $profileUser->name }} Avatar" style="border-radius: 500px; width: 200px;height: 200px">
+                    <img src="{{ $profileUser->avatar ?: $profileUser->defaultAvatar() }}" alt="{{ $profileUser->name }} Avatar" style="border-radius: 500px; width: 200px;height: 200px"><hr>
 
                     @can('update', $profileUser)
                         <form method="post" action="{{ route('avatar', $profileUser) }}" enctype="multipart/form-data">
